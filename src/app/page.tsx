@@ -2,6 +2,7 @@ import { client } from "@/sanity/client";
 import { type SanityDocument } from "next-sanity";
 import Link from "next/link";
 import { Hero } from "@/components/home/hero";
+import { CollectionsCarousel } from "@/components/home/collections-carousel";
 
 const PRODUCTS_QUERY = `*[_type == "products" && defined(slug.current)]{_id, name, slug, price}`;
 
@@ -13,6 +14,7 @@ export default async function IndexPage() {
   return (
     <main className="flex flex-col gap-y-4">
       <Hero />
+      <CollectionsCarousel />
       <div className="container mx-auto p-4 pt-0">
         <h2 className="text-xl font-bold mb-4">Products</h2>
         <ul className="flex flex-col gap-y-4">
