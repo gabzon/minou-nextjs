@@ -1,32 +1,30 @@
 import { client } from "@/sanity/client";
 import { type SanityDocument } from "next-sanity";
-import Link from "next/link";
 import { Hero } from "@/components/home/hero";
 import { CollectionsCarousel } from "@/components/home/collections-carousel";
+import { MaterialsGrid } from "@/components/home/materials-grid";
+import { ProductGrid } from "@/components/home/product-grid";
 
-const PRODUCTS_QUERY = `*[_type == "products" && defined(slug.current)]{_id, name, slug, price}`;
+const FRESH_PRODUCTS_QUERY = `*[_type == "products" && isNew == true] | order(_createdAt desc) [0...4]{
+  _id, 
+  name, 
+  slug, 
+  price, 
+  images, 
+  isNew
+}`;
 
 const options = { next: { revalidate: 30 } };
 
 export default async function IndexPage() {
-  const products = await client.fetch<SanityDocument[]>(PRODUCTS_QUERY, {}, options);
+  const freshProducts = await client.fetch<SanityDocument[]>(FRESH_PRODUCTS_QUERY, {}, options);
 
   return (
-    <main className="flex flex-col gap-y-4">
+    <main className="flex flex-col gap-y-4 pb-12">
       <Hero />
       <CollectionsCarousel />
-      <div className="container mx-auto p-4 pt-0">
-        <h2 className="text-xl font-bold mb-4">Products</h2>
-        <ul className="flex flex-col gap-y-4">
-        {products.map((product) => (
-          <li key={product._id} className="hover:underline">
-            <Link href={`/product/${product.slug.current}`}>
-              <h2 className="text-xl font-semibold">{product.name}</h2>
-              {product.price && <p>${product.price}</p>}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <MaterialsGrid />
+      <ProductGrid products={freshProducts} title="Freshly Baked" />
     </main>
   );
 }
