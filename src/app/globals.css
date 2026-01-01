@@ -16,6 +16,23 @@
   --color-accent-blush: var(--color-accent-blush);
   --color-accent-butter: var(--color-accent-butter);
 
+  /* Shadcn mappings */
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
   --radius-xl: 1.5rem;
   --radius-2xl: 2rem;
   --radius-3xl: 3rem;
@@ -63,12 +80,12 @@
   --primary: #ef3966;
   --primary-foreground: #ffffff;
   
-  /* Adjusted Pastels for Dark Mode (optional, reusing light for now or dimming via opacity in usage) */
-  --color-accent-mint: #064e3b; /* Darker mint for contrast or keep light if used as background for dark text */
+  /* Adjusted Pastels for Dark Mode */
+  --color-accent-mint: #064e3b; 
   --color-accent-blush: #831843;
   --color-accent-butter: #78350f;
 
-  --card: #2d161c; /* Slightly lighter charcoal */
+  --card: #2d161c; 
   --card-foreground: #fcf8f9;
   --popover: #2d161c;
   --popover-foreground: #fcf8f9;

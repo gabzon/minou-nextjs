@@ -1,6 +1,7 @@
 import { client } from "@/sanity/client";
 import { type SanityDocument } from "next-sanity";
 import Link from "next/link";
+import { ModeToggle } from "@/components/mode-toggle";
 
 const PRODUCTS_QUERY = `*[_type == "products" && defined(slug.current)]{_id, name, slug, price}`;
 
@@ -10,8 +11,12 @@ export default async function IndexPage() {
   const products = await client.fetch<SanityDocument[]>(PRODUCTS_QUERY, {}, options);
 
   return (
-    <main className="container mx-auto min-h-screen max-w-3xl p-8">
-      <h1 className="text-4xl font-bold mb-8">Products</h1>
+    <main className="container mx-auto p-4">
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-4xl font-bold text-primary font-display">Minou</h1>
+        <ModeToggle />
+      </div>
+      <h2 className="text-xl font-bold mb-4">Products</h2>
       <ul className="flex flex-col gap-y-4">
         {products.map((product) => (
           <li key={product._id} className="hover:underline">
