@@ -16,5 +16,5 @@
 ## Phase 3: Mobile Refinement
 - [x] Task: Refactor Product Page (`src/app/product/[slug]/page.tsx`) to be single-column on mobile.
 - [x] Task: Update `ImageGallery` to be full-width/carousel on mobile.
-- [x] Task: Adjust typography and spacing for mobile viewport.
-- [ ] Task: Conductor - User Manual Verification 'Mobile Refinement'
+- [x] Task: Adjust typography and spacing for mobile viewport. [ab270a3]
+- [x] Task: Conductor - User Manual Verification 'Mobile Refinement' [ab270a3]
