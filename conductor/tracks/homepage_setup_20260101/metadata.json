@@ -1,0 +1,8 @@
+{
+  "track_id": "homepage_setup_20260101",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-01T12:00:00Z",
+  "updated_at": "2026-01-01T12:00:00Z",
+  "description": "Implement the 'Sophisticated Playful' Homepage layout and theme infrastructure. This includes setting up the light/dark mode persistence with the creamy/charcoal palette, and building the initial Hero and Collections carousel sections based on the 'Stitch Minou' designs."
+}
