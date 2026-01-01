@@ -10,8 +10,8 @@
 ## Phase 2: Core Homepage Components
 - [x] Task: Write Tests for the Sticky Header and Navigation components. [80a04eb]
 - [x] Task: Implement Sticky Header with Logo, Menu, and Theme/Language toggles. [80a04eb]
-- [ ] Task: Write Tests for the Hero Section. [ ]
-- [ ] Task: Implement Hero Section with "New Season" badge and 9:16 banner support. [ ]
+- [x] Task: Write Tests for the Hero Section. [1b45ad5]
+- [x] Task: Implement Hero Section with "New Season" badge and 9:16 banner support. [1b45ad5]
 - [ ] Task: Write Tests for the Collections Carousel. [ ]
 - [ ] Task: Implement Collections Carousel with horizontal snap scroll and 9:16 thumbnails. [ ]
 - [ ] Task: Conductor - User Manual Verification 'Core Homepage Components' (Protocol in workflow.md) [ ]
