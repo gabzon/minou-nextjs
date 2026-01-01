@@ -14,8 +14,13 @@
 ## Styling & UI
 - **Tailwind CSS v4:** Utility-first CSS for rapid, responsive design with a modern compiler.
 - **shadcn/ui:** Accessible UI primitives built on Radix UI, styled with Tailwind.
+- **next-themes:** Persistent theme switching (Light/Dark mode).
 - **Lucide React:** A consistent and clean icon library.
 - **Typography:** "Plus Jakarta Sans" for a sophisticated, modern look.
+
+## Testing
+- **Vitest:** Blazing fast unit test framework.
+- **React Testing Library:** For testing React components.
 
 ## Media & Interaction
 - **yet-another-react-lightbox:** For high-fidelity, immersive product image galleries.

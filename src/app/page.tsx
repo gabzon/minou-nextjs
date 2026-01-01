@@ -17,7 +17,8 @@ const FRESH_PRODUCTS_QUERY = `*[_type == "products" && isNew == true] | order(_c
 const options = { next: { revalidate: 30 } };
 
 export default async function IndexPage() {
-  const freshProducts = await client.fetch<SanityDocument[]>(FRESH_PRODUCTS_QUERY, {}, options);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const freshProducts = await client.fetch<any[]>(FRESH_PRODUCTS_QUERY, {}, options);
 
   return (
     <main className="flex flex-col gap-y-4 pb-12">
