@@ -29,21 +29,23 @@ interface Props {
 export function ProductGrid({ products, title }: Props) {
   return (
     <section className="px-4 pt-4">
-      <div className="flex items-center justify-between mb-5">
-        <h2 className="text-xl font-bold tracking-tight">{title}</h2>
-      </div>
-      <div className="grid grid-cols-2 gap-4">
-        {products.map((product) => (
-          <ProductCard key={product._id} product={product} />
-        ))}
-      </div>
-      <div className="mt-8 mb-8 text-center">
-        <Link 
-          href="/products" 
-          className="inline-flex items-center justify-center gap-2 border-2 border-primary/20 hover:border-primary text-primary font-bold py-3 px-8 rounded-full transition-colors text-sm"
-        >
-          View All Products
-        </Link>
+      <div className="container mx-auto max-w-7xl px-0">
+        <div className="flex items-center justify-between mb-5">
+          <h2 className="text-xl font-bold tracking-tight">{title}</h2>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+          {products.map((product) => (
+            <ProductCard key={product._id} product={product} />
+          ))}
+        </div>
+        <div className="mt-8 mb-8 text-center">
+          <Link 
+            href="/products" 
+            className="inline-flex items-center justify-center gap-2 border-2 border-primary/20 hover:border-primary text-primary font-bold py-3 px-8 rounded-full transition-colors text-sm"
+          >
+            View All Products
+          </Link>
+        </div>
       </div>
     </section>
   );

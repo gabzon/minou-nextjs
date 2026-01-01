@@ -19,23 +19,25 @@ const MATERIALS = [
 export function MaterialsGrid() {
   return (
     <section className="py-6 bg-card dark:bg-card my-4">
-      <div className="px-4 mb-5">
-        <h2 className="text-xl font-bold tracking-tight">Shop by Material</h2>
-      </div>
-      <div className="flex justify-around px-4">
-        {MATERIALS.map((material) => (
-          <div key={material.name} className="flex flex-col items-center gap-2 group cursor-pointer">
-            <div className={`w-20 h-20 rounded-full ${material.color} overflow-hidden p-1 shadow-sm ring-2 ring-transparent group-hover:ring-primary/50 transition-all`}>
-              <div 
-                className="w-full h-full rounded-full bg-cover bg-center"
-                role="img"
-                aria-label={material.name}
-                style={{ backgroundImage: `url("${material.image}")` }}
-              />
+      <div className="container mx-auto max-w-7xl px-0">
+        <div className="px-4 mb-5">
+          <h2 className="text-xl font-bold tracking-tight">Shop by Material</h2>
+        </div>
+        <div className="flex justify-around px-4">
+          {MATERIALS.map((material) => (
+            <div key={material.name} className="flex flex-col items-center gap-2 group cursor-pointer">
+              <div className={`w-20 h-20 rounded-full ${material.color} overflow-hidden p-1 shadow-sm ring-2 ring-transparent group-hover:ring-primary/50 transition-all`}>
+                <div 
+                  className="w-full h-full rounded-full bg-cover bg-center"
+                  role="img"
+                  aria-label={material.name}
+                  style={{ backgroundImage: `url("${material.image}")` }}
+                />
+              </div>
+              <span className="text-xs font-bold">{material.name}</span>
             </div>
-            <span className="text-xs font-bold">{material.name}</span>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

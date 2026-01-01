@@ -12,18 +12,19 @@ const SAMPLE_COLLECTIONS = [
 export function CollectionsCarousel() {
   return (
     <section className="pt-8 pb-4">
-      <div className="flex items-center justify-between px-4 mb-4">
-        <h2 className="text-xl font-bold tracking-tight">Collections</h2>
-        <Link 
-          href="/collections" 
-          className="text-sm font-semibold text-primary flex items-center gap-0.5"
-        >
-          See All <ChevronRight className="h-4 w-4" />
-        </Link>
-      </div>
-      
-      <div className="flex overflow-x-auto gap-4 px-4 pb-4 snap-x no-scrollbar">
-        {SAMPLE_COLLECTIONS.map((collection) => (
+      <div className="container mx-auto max-w-7xl px-0">
+        <div className="flex items-center justify-between px-4 mb-4">
+          <h2 className="text-xl font-bold tracking-tight">Collections</h2>
+          <Link 
+            href="/collections" 
+            className="text-sm font-semibold text-primary flex items-center gap-0.5"
+          >
+            See All <ChevronRight className="h-4 w-4" />
+          </Link>
+        </div>
+        
+        <div className="flex overflow-x-auto gap-4 px-4 pb-4 snap-x no-scrollbar">
+          {SAMPLE_COLLECTIONS.map((collection) => (
           <div 
             key={collection.id} 
             className="flex flex-col gap-2 min-w-[120px] snap-start group cursor-pointer"
@@ -40,6 +41,7 @@ export function CollectionsCarousel() {
             </p>
           </div>
         ))}
+      </div>
       </div>
     </section>
   )

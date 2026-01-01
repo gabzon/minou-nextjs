@@ -22,11 +22,11 @@
 ## Phase 4: UI Polish (Desktop Hero)
 - [x] Task: Update `Hero` component to respect global container width on desktop. [bea1dcc]
 - [x] Task: Limit `Hero` component height/aspect-ratio on desktop to ensure visibility. [bea1dcc]
-- [x] Task: Conductor - User Manual Verification 'UI Polish' [e31c265]
+- [x] Task: Conductor - User Manual Verification 'UI Polish' [ee1d6d7]
 
 ## Phase 5: Global Layout Alignment & Grid Responsiveness
-- [ ] Task: Update `CollectionsCarousel` to respect global container width on desktop.
-- [ ] Task: Update `MaterialsGrid` to respect global container width on desktop.
-- [ ] Task: Update `ProductGrid` to respect global container width on desktop.
-- [ ] Task: Update `ProductGrid` responsive columns (Mobile: 2, Tablet: 3, Large: 4, XL+: 5).
+- [x] Task: Update `CollectionsCarousel` to respect global container width on desktop.
+- [x] Task: Update `MaterialsGrid` to respect global container width on desktop.
+- [x] Task: Update `ProductGrid` to respect global container width on desktop.
+- [x] Task: Update `ProductGrid` responsive columns (Mobile: 2, Tablet: 3, Large: 4, XL+: 5).
 - [ ] Task: Conductor - User Manual Verification 'Layout Alignment'
