@@ -155,6 +155,18 @@ export default async function ProductPage({ params }: Props) {
             )}
           </div>
 
+          {product.inStock && (
+            <Button className="w-full h-12 text-lg font-bold bg-primary hover:bg-primary/90" asChild>
+              <a 
+                href={`https://docs.google.com/forms/d/e/1FAIpQLSfYourFormId/viewform?usp=pp_url&entry.123456789=${encodeURIComponent(product.name)}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Order This Item
+              </a>
+            </Button>
+          )}
+
           <Separator />
 
           <div className="space-y-3">
