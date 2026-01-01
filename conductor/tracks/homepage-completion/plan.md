@@ -24,7 +24,7 @@
 - [x] Task: Limit `Hero` component height/aspect-ratio on desktop to ensure visibility. [bea1dcc]
 - [x] Task: Conductor - User Manual Verification 'UI Polish' [ee1d6d7]
 
-## Phase 5: Global Layout Alignment & Grid Responsiveness
+## Phase 5: Global Layout Alignment & Grid Responsiveness [checkpoint: 34ac7e5]
 - [x] Task: Update `CollectionsCarousel` to respect global container width on desktop.
 - [x] Task: Update `MaterialsGrid` to respect global container width on desktop.
 - [x] Task: Update `ProductGrid` to respect global container width on desktop.
