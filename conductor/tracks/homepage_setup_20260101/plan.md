@@ -3,7 +3,7 @@
 ## Phase 1: Theme & Layout Foundation
 - [x] Task: Configure Tailwind CSS v4 with custom theme colors and Plus Jakarta Sans. [53fb1df]
 - [x] Task: Write Tests for theme persistence and toggle logic. [978b8dd]
-- [ ] Task: Implement `ThemeProvider` and theme toggle component with light/dark persistence. [ ]
+- [x] Task: Implement `ThemeProvider` and theme toggle component with light/dark persistence. [978b8dd]
 - [ ] Task: Create responsive `MainLayout` with max-width mobile wrapper and global background styles. [ ]
 - [ ] Task: Conductor - User Manual Verification 'Theme & Layout Foundation' (Protocol in workflow.md) [ ]
 
