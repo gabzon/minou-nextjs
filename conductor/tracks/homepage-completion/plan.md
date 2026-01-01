@@ -10,5 +10,5 @@
 
 ## Phase 2: Ordering Integration
 - [x] Task: Implement "Order This Item" CTA on Product Pages with Google Form URL parameters. [ca8c609]
-- [~] Task: Add Newsletter Signup placeholder in Footer.
+- [x] Task: Add Newsletter Signup placeholder in Footer. [d56575b]
 - [ ] Task: Conductor - User Manual Verification 'Ordering Integration'
