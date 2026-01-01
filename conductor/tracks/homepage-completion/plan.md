@@ -20,6 +20,7 @@
 - [x] Task: Conductor - User Manual Verification 'Mobile Refinement' [ab270a3]
 
 ## Phase 4: UI Polish (Desktop Hero)
-- [ ] Task: Update `Hero` component to respect global container width on desktop.
-- [ ] Task: Limit `Hero` component height/aspect-ratio on desktop to ensure visibility.
+- [x] Task: Update `Hero` component to respect global container width on desktop. [bea1dcc]
+- [x] Task: Limit `Hero` component height/aspect-ratio on desktop to ensure visibility. [bea1dcc]
+- [ ] Task: Conductor - User Manual Verification 'UI Polish'
 - [ ] Task: Conductor - User Manual Verification 'UI Polish'
