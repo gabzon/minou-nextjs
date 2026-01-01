@@ -18,3 +18,8 @@
 - [x] Task: Update `ImageGallery` to be full-width/carousel on mobile.
 - [x] Task: Adjust typography and spacing for mobile viewport. [ab270a3]
 - [x] Task: Conductor - User Manual Verification 'Mobile Refinement' [ab270a3]
+
+## Phase 4: UI Polish (Desktop Hero)
+- [ ] Task: Update `Hero` component to respect global container width on desktop.
+- [ ] Task: Limit `Hero` component height/aspect-ratio on desktop to ensure visibility.
+- [ ] Task: Conductor - User Manual Verification 'UI Polish'
