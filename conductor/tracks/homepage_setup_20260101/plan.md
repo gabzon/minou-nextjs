@@ -8,8 +8,8 @@
 - [x] Task: Conductor - User Manual Verification 'Theme & Layout Foundation' (Protocol in workflow.md) [712f565]
 
 ## Phase 2: Core Homepage Components
-- [ ] Task: Write Tests for the Sticky Header and Navigation components. [ ]
-- [ ] Task: Implement Sticky Header with Logo, Menu, and Theme/Language toggles. [ ]
+- [x] Task: Write Tests for the Sticky Header and Navigation components. [80a04eb]
+- [x] Task: Implement Sticky Header with Logo, Menu, and Theme/Language toggles. [80a04eb]
 - [ ] Task: Write Tests for the Hero Section. [ ]
 - [ ] Task: Implement Hero Section with "New Season" badge and 9:16 banner support. [ ]
 - [ ] Task: Write Tests for the Collections Carousel. [ ]
