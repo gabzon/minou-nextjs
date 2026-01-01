@@ -14,7 +14,7 @@
 - [x] Task: Conductor - User Manual Verification 'Ordering Integration' [ae81959]
 
 ## Phase 3: Mobile Refinement
-- [ ] Task: Refactor Product Page (`src/app/product/[slug]/page.tsx`) to be single-column on mobile.
-- [ ] Task: Update `ImageGallery` to be full-width/carousel on mobile.
-- [ ] Task: Adjust typography and spacing for mobile viewport.
+- [x] Task: Refactor Product Page (`src/app/product/[slug]/page.tsx`) to be single-column on mobile.
+- [x] Task: Update `ImageGallery` to be full-width/carousel on mobile.
+- [x] Task: Adjust typography and spacing for mobile viewport.
 - [ ] Task: Conductor - User Manual Verification 'Mobile Refinement'
