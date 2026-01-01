@@ -8,7 +8,13 @@
 - [x] Task: Update Homepage (`src/app/page.tsx`) to include all sections. [2e19f9c]
 - [ ] Task: Conductor - User Manual Verification 'Homepage Completion'
 
-## Phase 2: Ordering Integration
+## Phase 2: Ordering Integration [checkpoint: ae81959]
 - [x] Task: Implement "Order This Item" CTA on Product Pages with Google Form URL parameters. [ca8c609]
 - [x] Task: Add Newsletter Signup placeholder in Footer. [d56575b]
-- [ ] Task: Conductor - User Manual Verification 'Ordering Integration'
+- [x] Task: Conductor - User Manual Verification 'Ordering Integration' [ae81959]
+
+## Phase 3: Mobile Refinement
+- [ ] Task: Refactor Product Page (`src/app/product/[slug]/page.tsx`) to be single-column on mobile.
+- [ ] Task: Update `ImageGallery` to be full-width/carousel on mobile.
+- [ ] Task: Adjust typography and spacing for mobile viewport.
+- [ ] Task: Conductor - User Manual Verification 'Mobile Refinement'
