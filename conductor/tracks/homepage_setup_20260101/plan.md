@@ -1,7 +1,7 @@
 # Track Plan: Homepage Setup & Theme Infrastructure
 
 ## Phase 1: Theme & Layout Foundation
-- [ ] Task: Configure Tailwind CSS v4 with custom theme colors and Plus Jakarta Sans. [ ]
+- [x] Task: Configure Tailwind CSS v4 with custom theme colors and Plus Jakarta Sans. [53fb1df]
 - [ ] Task: Write Tests for theme persistence and toggle logic. [ ]
 - [ ] Task: Implement `ThemeProvider` and theme toggle component with light/dark persistence. [ ]
 - [ ] Task: Create responsive `MainLayout` with max-width mobile wrapper and global background styles. [ ]
