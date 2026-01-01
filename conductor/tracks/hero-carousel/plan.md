@@ -1,6 +1,6 @@
 # Track Plan: Hero Carousel Refactor
 
-## Phase 1: Dynamic Hero Carousel
+## Phase 1: Dynamic Hero Carousel [checkpoint: b405b7a]
 - [x] Task: Update Sanity query in `src/app/page.tsx` to fetch `isFeatured` products. [938fe4d]
 - [x] Task: Create `HeroCarousel` component to replace the static Hero. [938fe4d]
 - [x] Task: Implement "Intro Card" (Branding/CTA) as the first slide of the carousel. [938fe4d]
