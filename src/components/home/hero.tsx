@@ -3,10 +3,11 @@ import { ArrowRight } from "lucide-react"
 export function Hero() {
   return (
     <section className="px-4 pt-4 pb-2">
-      <div className="relative w-full aspect-[9/14] sm:aspect-[9/16] rounded-[2rem] overflow-hidden group shadow-lg bg-muted">
-        {/* Background Image Placeholder */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+      <div className="container mx-auto max-w-7xl px-0">
+        <div className="relative w-full aspect-[9/14] sm:aspect-[9/16] lg:aspect-[21/9] lg:max-h-[80vh] rounded-[2rem] overflow-hidden group shadow-lg bg-muted">
+          {/* Background Image Placeholder */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
           style={{ 
             backgroundImage: 'url("https://images.unsplash.com/photo-1611085583191-a3b136340921?auto=format&fit=crop&q=80&w=1000")' 
           }}
@@ -34,6 +35,7 @@ export function Hero() {
             <ArrowRight className="h-4 w-4" />
           </button>
         </div>
+      </div>
       </div>
     </section>
   )
