@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Minou - Summer Berry Choker</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ef3966",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221015",
+                        "pastel-mint": "#e0f2f1",
+                        "pastel-blush": "#fce4ec",
+                        "pastel-yellow": "#fff9c4",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem", 
+                        "lg": "1.5rem", 
+                        "xl": "2rem", 
+                        "2xl": "3rem", 
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Scrollbar Hiding */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Smooth scrolling for anchor links if needed */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 transition-colors duration-300">
+<!-- Background Decorative Blobs (Pastel Accents) -->
+<div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+<div class="absolute top-[-10%] right-[-10%] w-64 h-64 bg-pastel-yellow dark:bg-yellow-900/20 rounded-full blur-3xl opacity-60"></div>
+<div class="absolute top-[20%] left-[-10%] w-80 h-80 bg-pastel-blush dark:bg-pink-900/20 rounded-full blur-3xl opacity-50"></div>
+<div class="absolute bottom-[10%] right-[-5%] w-72 h-72 bg-pastel-mint dark:bg-teal-900/20 rounded-full blur-3xl opacity-50"></div>
+</div>
+<!-- Main Container -->
+<div class="relative flex flex-col min-h-screen w-full max-w-md mx-auto bg-transparent group/design-root z-10 shadow-2xl overflow-hidden bg-white/30 dark:bg-black/20 backdrop-blur-sm sm:my-4 sm:rounded-2xl border border-white/50 dark:border-white/5">
+<!-- Header -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-4 py-3 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
+<!-- Left: Menu & Back -->
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-800 dark:text-gray-200">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-800 dark:text-gray-200">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+</div>
+<!-- Center: Logo -->
+<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+<h2 class="text-2xl font-extrabold tracking-tight text-primary">Minou</h2>
+</div>
+<!-- Right: Toggles -->
+<div class="flex items-center gap-3">
+<!-- Language Toggle -->
+<div class="flex items-center bg-white dark:bg-gray-800 rounded-full p-1 border border-gray-200 dark:border-gray-700 shadow-sm">
+<button class="px-2 py-0.5 text-xs font-bold text-gray-400 hover:text-primary transition-colors">HR</button>
+<div class="h-4 w-[1px] bg-gray-300 dark:bg-gray-600 mx-0.5"></div>
+<button class="px-2 py-0.5 text-xs font-bold text-primary">EN</button>
+</div>
+<!-- Theme Toggle -->
+<button class="p-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 shadow-sm text-gray-800 dark:text-yellow-400 transition-all" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-symbols-outlined text-[20px]">light_mode</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto pb-24 hide-scrollbar">
+<!-- Image Gallery (Carousel) -->
+<div class="w-full relative group">
+<div class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-6 pt-4 px-4 gap-4">
+<!-- Image 1 -->
+<div class="snap-center shrink-0 w-[85%] sm:w-[80%] flex flex-col">
+<div class="w-full aspect-[9/14] bg-cover bg-center rounded-2xl shadow-lg border-4 border-white dark:border-gray-800" data-alt="Close up of a woman wearing a colorful beaded necklace with a pink background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBB4lQ-Mzxe459z9jxckYpxQ_Yv05UEpy-2nocvoX2k6Vqml5WbkJrBOxC6o2wl19bYFJFY3H4RMXMFd7AJbPi11OOj1W-hmbFkScDIOHrJ9ittUnmDZ8Yzjpx1NANQuOuzdm5ym8nDZY5cFa2w5e-jri51NFQgGHG7BGeS4Zzcn5SB1mPHQ3CPc0ld03kby73rSvTaNxGMpNtOsjtT7fWxHjyqYnvFTVv2_WhGnNfZoQzst7J3z_7qCuBofL0uwGdLDbwegSglZT8");'>
+</div>
+</div>
+<!-- Image 2 -->
+<div class="snap-center shrink-0 w-[85%] sm:w-[80%] flex flex-col">
+<div class="w-full aspect-[9/14] bg-cover bg-center rounded-2xl shadow-lg border-4 border-white dark:border-gray-800" data-alt="Colorful handmade jewelry laid out on a soft fabric surface" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBDU0JiH6s8p4Bgki9YXvxYGd92GQx7RAB4xXmx1h7MWJfGmhUEg2U2WCM1b5JuxSId7dSRNO_UxJ3Hm5XOCOHAXsdMIe0vPFtAkek4_myWJuCX0PoDQhS1hNjVXIjB_vMEiC2gpTLrH9ml02TQuFgHLD8infHdZGkn9Vh47xvWqrKrS-jNDcMAld1ZH6hoZnJGjZvUgEPSzww8udmwmPpUA5CeYtF5LTSOU0x9Z2VAR-FNwqKJFuXIgluEgB1GhonvBZ5rzLz3Vuk");'>
+</div>
+</div>
+<!-- Image 3 -->
+<div class="snap-center shrink-0 w-[85%] sm:w-[80%] flex flex-col">
+<div class="w-full aspect-[9/14] bg-cover bg-center rounded-2xl shadow-lg border-4 border-white dark:border-gray-800" data-alt="Detail shot of glass beads and gold clasp on a necklace" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCCP6jMYuG-_TP6JyCaRwQ1F6oc70VIqEOrfKUDqNdzwwvbSxOvQLIGuiO5z5ZvZXJsqg3ItF2pNf5nNYttJFlD8bNxvd3yj25Na1dI6DtBupZ_Kg2p5ddzsFobCIw5_gtE2JvUzR-xIGo0pVb1RM_mSvFr-OokzUFnq1mCCP_N4ohhpWP8UlXyCVhZCHZ0ok8_dxeUWV0Vtg-n9ngwTSSZWQy65Cn8q5EsWaoccZKlherBB2dC3DOjtPEHH1R1nfvEDLIDhomOfRw");'>
+</div>
+</div>
+</div>
+<!-- Pagination Dots -->
+<div class="flex justify-center gap-2 absolute bottom-2 left-0 w-full">
+<div class="w-2 h-2 rounded-full bg-primary shadow-sm"></div>
+<div class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+<div class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+</div>
+</div>
+<!-- Product Details Card -->
+<div class="px-5 pt-2">
+<!-- Title & Price -->
+<div class="flex flex-col gap-1 mb-4 mt-2">
+<div class="flex justify-between items-start gap-4">
+<h1 class="text-3xl font-extrabold text-gray-900 dark:text-white leading-tight">Summer Berry Choker</h1>
+<button class="shrink-0 p-2 rounded-full bg-white dark:bg-gray-800 text-gray-400 hover:text-primary transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[24px] fill-current">favorite</span>
+</button>
+</div>
+<p class="text-2xl font-bold text-primary">€45.00</p>
+</div>
+<!-- Materials Chips -->
+<div class="flex flex-wrap gap-2 mb-6">
+<div class="flex items-center justify-center px-3 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/10">
+<span class="material-symbols-outlined text-[16px] text-primary mr-1">diamond</span>
+<span class="text-primary text-xs font-bold uppercase tracking-wide">Glass Beads</span>
+</div>
+<div class="flex items-center justify-center px-3 py-1.5 rounded-full bg-orange-100 dark:bg-orange-900/30 border border-orange-200 dark:border-orange-800">
+<span class="material-symbols-outlined text-[16px] text-orange-600 dark:text-orange-400 mr-1">auto_awesome</span>
+<span class="text-orange-600 dark:text-orange-400 text-xs font-bold uppercase tracking-wide">14k Gold Plated</span>
+</div>
+<div class="flex items-center justify-center px-3 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800">
+<span class="material-symbols-outlined text-[16px] text-blue-600 dark:text-blue-400 mr-1">gesture</span>
+<span class="text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wide">Silk Thread</span>
+</div>
+</div>
+<!-- Description -->
+<div class="space-y-4">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                        Description
+                    </h3>
+<p class="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                        Hand-strung with love in our Zagreb studio, the Summer Berry Choker features a playful mix of vintage glass beads sourced from local flea markets. Each piece is unique, capturing the essence of a carefree summer afternoon.
+                    </p>
+<p class="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                        The adjustable 14k gold plated extender ensures a perfect fit for layering with your other favorite pieces.
+                    </p>
+</div>
+<!-- Shipping & Returns Accordion Placeholder -->
+<div class="mt-8 border-t border-gray-200 dark:border-gray-700 pt-4">
+<button class="w-full flex justify-between items-center py-2 text-left group">
+<span class="text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-primary transition-colors">Shipping &amp; Returns</span>
+<span class="material-symbols-outlined text-gray-400">expand_more</span>
+</button>
+<button class="w-full flex justify-between items-center py-2 text-left group">
+<span class="text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-primary transition-colors">Care Instructions</span>
+<span class="material-symbols-outlined text-gray-400">expand_more</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Sticky Bottom CTA -->
+<div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark pt-12">
+<button class="w-full flex items-center justify-center gap-3 bg-primary hover:bg-red-600 text-white font-bold text-lg py-4 rounded-full shadow-xl shadow-primary/30 transition-transform active:scale-[0.98]">
+<span>Order via Google Form</span>
+<span class="material-symbols-outlined">open_in_new</span>
+</button>
+</div>
+</div>
+</body></html>
