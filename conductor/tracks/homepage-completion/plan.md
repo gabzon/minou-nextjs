@@ -9,6 +9,6 @@
 - [ ] Task: Conductor - User Manual Verification 'Homepage Completion'
 
 ## Phase 2: Ordering Integration
-- [ ] Task: Implement "Order This Item" CTA on Product Pages with Google Form URL parameters.
-- [ ] Task: Add Newsletter Signup placeholder in Footer.
+- [x] Task: Implement "Order This Item" CTA on Product Pages with Google Form URL parameters. [ca8c609]
+- [~] Task: Add Newsletter Signup placeholder in Footer.
 - [ ] Task: Conductor - User Manual Verification 'Ordering Integration'
