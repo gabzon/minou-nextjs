@@ -8,7 +8,7 @@ import Link from "next/link"
 export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border transition-all duration-300">
-      <div className="flex items-center justify-between px-4 py-3">
+      <div className="container mx-auto max-w-7xl flex items-center justify-between px-4 py-3 relative">
         {/* Left: Menu */}
         <div className="flex items-center">
           <button 

@@ -8,7 +8,7 @@ export function MainLayout({ children, className, ...props }: MainLayoutProps) {
   return (
     <div
       className={cn(
-        "relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto shadow-2xl bg-background text-foreground",
+        "relative flex min-h-screen w-full flex-col overflow-x-hidden bg-background text-foreground",
         className
       )}
       {...props}
