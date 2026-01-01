@@ -12,6 +12,6 @@
 - [x] Task: Implement Sticky Header with Logo, Menu, and Theme/Language toggles. [80a04eb]
 - [x] Task: Write Tests for the Hero Section. [1b45ad5]
 - [x] Task: Implement Hero Section with "New Season" badge and 9:16 banner support. [1b45ad5]
-- [ ] Task: Write Tests for the Collections Carousel. [ ]
-- [ ] Task: Implement Collections Carousel with horizontal snap scroll and 9:16 thumbnails. [ ]
+- [x] Task: Write Tests for the Collections Carousel. [d42ab45]
+- [x] Task: Implement Collections Carousel with horizontal snap scroll and 9:16 thumbnails. [d42ab45]
 - [ ] Task: Conductor - User Manual Verification 'Core Homepage Components' (Protocol in workflow.md) [ ]
