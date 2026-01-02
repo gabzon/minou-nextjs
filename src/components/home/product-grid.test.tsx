@@ -26,12 +26,13 @@ describe('ProductGrid', () => {
     expect(screen.getByText('Freshly Baked')).toBeDefined();
   });
 
-  it('renders product names and prices', () => {
-    render(<ProductGrid products={MOCK_PRODUCTS} title="Freshly Baked" />);
-    expect(screen.getByText('Sunset Drop Earrings')).toBeDefined();
-    expect(screen.getByText('$25')).toBeDefined();
-    expect(screen.getByText('Cloud Nine Studs')).toBeDefined();
-    expect(screen.getByText('$18')).toBeDefined();
+  it('renders product cards with details', () => {
+    render(<ProductGrid products={MOCK_PRODUCTS} title="Test Grid" />);
+    
+    expect(screen.getByText('Test Product 1')).toBeDefined();
+    expect(screen.getByText('25 €')).toBeDefined();
+    expect(screen.getByText('Test Product 2')).toBeDefined();
+    expect(screen.getByText('18 €')).toBeDefined();
   });
 
   it('renders the "New" badge for new products', () => {

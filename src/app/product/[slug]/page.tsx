@@ -1,41 +1,39 @@
 import { client } from "@/sanity/client";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { Metadata } from "next";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 import ImageGallery from "./components/ImageGallery";
-import PortableTextRenderer from "./components/PortableText";
+import ProductDetails from "./components/ProductDetails";
+import ProductBreadcrumbs from "./components/ProductBreadcrumbs";
+import { getLocalizedValue } from "@/lib/utils/i18n-helpers";
 
 interface Product {
   _id: string;
-  name: string;
+  name: unknown;
   slug: { current: string };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   images: any[];
-  shortDescription?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   description?: any;
   careInstructions?: string;
   price: number;
   discount?: number;
   currency?: string;
-  category?: { name: string };
-  collection?: { name: string };
+  type?: { name: unknown; slug: { current: string } };
+  category?: { name: unknown };
+  collection?: { name: unknown; slug: { current: string } };
   tags?: string[];
   isCustomizable?: boolean;
   isFeatured?: boolean;
   isNew?: boolean;
-  color?: { name: string }[];
-  materials?: { name: string }[];
+  color?: { name: string; hex: string }[];
+  materials?: { name: unknown }[];
   weight?: number;
   sizeOptions?: string[];
   dimensions?: { length?: number; width?: number; height?: number };
   inStock?: boolean;
   quantity?: number;
   sku?: string;
-  seo?: { metaTitle?: string; metaDescription?: string };
+  seo?: { metaTitle?: unknown; metaDescription?: unknown };
 }
 
 const PRODUCT_QUERY = `*[_type == "products" && slug.current == $slug][0]{
@@ -43,20 +41,20 @@ const PRODUCT_QUERY = `*[_type == "products" && slug.current == $slug][0]{
   name,
   slug,
   images,
-  shortDescription,
   description,
   careInstructions,
   price,
   discount,
   currency,
+  type->{name, slug},
   category->{name},
-  collection->{name},
+  collection->{name, slug},
   tags,
   isCustomizable,
   isFeatured,
   isNew,
-  color->{name},
-  materials->{name},
+  color[]->{name, hex},
+  materials[]->{name},
   weight,
   sizeOptions,
   dimensions{length, width, height},
@@ -80,9 +78,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  // Fallback to 'en' for SSR metadata
+  const name = getLocalizedValue(product.name, 'en');
+  const desc = getLocalizedValue(product.description, 'en');
+  const metaTitle = getLocalizedValue(product.seo?.metaTitle, 'en');
+  const metaDesc = getLocalizedValue(product.seo?.metaDescription, 'en');
+
   return {
-    title: product.seo?.metaTitle || product.name,
-    description: product.seo?.metaDescription || product.shortDescription || product.name,
+    title: (metaTitle as string) || (typeof name === 'string' ? name : 'Product Details'),
+    description: (metaDesc as string) || (typeof desc === 'string' ? desc : undefined),
   };
 }
 
@@ -94,79 +98,16 @@ export default async function ProductPage({ params }: Props) {
     notFound();
   }
 
-  const formatDimensions = () => {
-    const dims = [];
-    if (product.dimensions?.length) dims.push(`${product.dimensions.length}mm`);
-    if (product.dimensions?.width) dims.push(`${product.dimensions.width}mm`);
-    if (product.dimensions?.height) dims.push(`${product.dimensions.height}mm`);
-    return dims.join(' × ');
-  };
-
   return (
     <div className="container mx-auto max-w-7xl px-0 sm:px-4 py-0 sm:py-8">
-      <nav className="hidden sm:flex items-center gap-2 text-sm text-muted-foreground mb-6 px-4 sm:px-0">
-        <Link href="/" className="hover:text-rose-500">Home</Link>
-        <span>/</span>
-        <span className="text-foreground">{product.name}</span>
-      </nav>
-
-      <div className="hidden sm:block px-4 sm:px-0">
-        <Link href="/">
-          <Button variant="ghost" className="mb-6">
-            ← Back to Products
-          </Button>
-        </Link>
-      </div>
+      <ProductBreadcrumbs product={product} />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
         <div className="w-full">
           <ImageGallery images={product.images} />
         </div>
 
-        <div className="space-y-6 px-4 sm:px-0 pb-10">
-          <div>
-            <h1 className="text-3xl sm:text-4xl font-bold mb-2">{product.name}</h1>
-            
-            <div className="flex items-baseline gap-4 mb-4">
-              <span className="text-3xl font-bold text-primary">
-                ${product.price}
-              </span>
-              {product.discount && (
-                <span className="text-xl line-through text-muted-foreground">
-                  ${product.discount}
-                </span>
-              )}
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {product.materials && product.materials.length > 0 && product.materials.map((m, idx) => (
-                <Badge key={idx} variant="secondary" className="bg-rose-100 text-rose-700 hover:bg-rose-200 border-none uppercase text-[10px] tracking-wider">
-                  ✨ {m.name}
-                </Badge>
-              ))}
-              {product.isNew && (
-                <Badge variant="secondary" className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none uppercase text-[10px] tracking-wider">
-                  New Arrival
-                </Badge>
-              )}
-            </div>
-          </div>
-
-          <div className="space-y-4">
-             <h3 className="font-bold text-lg">Description</h3>
-             
-             {product.shortDescription && (
-                <p className="text-muted-foreground leading-relaxed">{product.shortDescription}</p>
-              )}
-             
-             {product.description && (
-                <div className="text-muted-foreground leading-relaxed prose prose-sm dark:prose-invert">
-                  <PortableTextRenderer content={product.description} />
-                </div>
-              )}
-          </div>
-
-        </div>
+        <ProductDetails product={product as any} />
       </div>
     </div>
   );

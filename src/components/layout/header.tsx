@@ -1,22 +1,64 @@
 "use client"
 
 import * as React from "react"
-import { Menu, ShoppingBag } from "lucide-react"
+import { Menu } from "lucide-react"
 import { ModeToggle } from "@/components/mode-toggle"
 import Link from "next/link"
+import { useLanguage } from "@/lib/i18n"
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 
 export function Header() {
+  const { language, setLanguage, t } = useLanguage();
+  const [open, setOpen] = React.useState(false);
+
+  const navLinks = [
+    { href: "/about", label: "nav.about" },
+    { href: "/custom-orders", label: "nav.customOrders" },
+    { href: "/shipping", label: "nav.shipping" },
+    { href: "/returns", label: "nav.returns" },
+    { href: "/faq", label: "nav.faq" },
+  ];
+
   return (
     <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border transition-all duration-300">
       <div className="container mx-auto max-w-7xl flex items-center justify-between px-4 py-3 relative">
         {/* Left: Menu */}
         <div className="flex items-center">
-          <button 
-            className="p-2 -ml-2 rounded-full hover:bg-muted transition-colors"
-            aria-label="Menu"
-          >
-            <Menu className="h-6 w-6" />
-          </button>
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger asChild>
+              <button 
+                className="p-2 -ml-2 rounded-full hover:bg-muted transition-colors"
+                aria-label="Menu"
+              >
+                <Menu className="h-6 w-6" />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-[300px] sm:w-[400px] px-6">
+              <SheetHeader className="text-left px-0">
+                <SheetTitle className="text-2xl font-extrabold text-primary font-display">
+                  Minou
+                </SheetTitle>
+              </SheetHeader>
+              <nav className="flex flex-col gap-6 mt-10">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="text-lg font-bold hover:text-primary transition-colors border-b border-border pb-2"
+                  >
+                    {t(link.label)}
+                  </Link>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
 
         {/* Center: Logo */}
@@ -30,20 +72,15 @@ export function Header() {
 
         {/* Right: Actions */}
         <div className="flex items-center gap-1">
-          {/* Language Toggle Placeholder */}
-          <button className="text-xs font-bold px-2 py-1 rounded-full hover:bg-muted text-muted-foreground transition-colors uppercase">
-            HR
+          {/* Language Toggle */}
+          <button 
+            onClick={() => setLanguage(language === "en" ? "hr" : "en")}
+            className="text-xs font-bold px-2 py-1 rounded-full hover:bg-muted text-muted-foreground transition-colors uppercase min-w-[2rem]"
+          >
+            {language === "en" ? "hr" : "en"}
           </button>
           
           <ModeToggle />
-          
-          <button 
-            className="p-2 -mr-2 rounded-full hover:bg-muted transition-colors relative"
-            aria-label="Shopping bag"
-          >
-            <ShoppingBag className="h-5 w-5" />
-            <span className="absolute top-2 right-1.5 w-2 h-2 bg-primary rounded-full ring-1 ring-background" />
-          </button>
         </div>
       </div>
     </header>

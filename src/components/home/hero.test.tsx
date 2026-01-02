@@ -19,10 +19,10 @@ describe('Hero', () => {
     expect(screen.getByText(/Shop New Drops/i)).toBeDefined();
   });
 
-  it('renders featured products when provided', () => {
-    render(<Hero featuredProducts={MOCK_FEATURED} />);
+  it('renders product information', () => {
+    render(<Hero featuredProducts={MOCK_PRODUCTS} />);
     expect(screen.getByText('Featured Product 1')).toBeDefined();
-    expect(screen.getByText('$100')).toBeDefined();
+    expect(screen.getByText('100 €')).toBeDefined();
   });
 
   it('renders without featured products (graceful fallback)', () => {

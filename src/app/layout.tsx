@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { MainLayout } from "@/components/layout/main-layout";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { LanguageProvider } from "@/lib/i18n";
 
 const jakartaSans = Plus_Jakarta_Sans({
   variable: "--font-jakarta-sans",
@@ -33,11 +34,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <MainLayout>
-            <Header />
-            {children}
-            <Footer />
-          </MainLayout>
+          <LanguageProvider>
+            <MainLayout>
+              <Header />
+              {children}
+              <Footer />
+            </MainLayout>
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>
