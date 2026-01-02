@@ -6,6 +6,8 @@ import ProductDetails from "./components/ProductDetails";
 import ProductBreadcrumbs from "./components/ProductBreadcrumbs";
 import { getLocalizedValue } from "@/lib/utils/i18n-helpers";
 
+export const runtime = 'edge';
+
 interface Product {
   _id: string;
   name: unknown;

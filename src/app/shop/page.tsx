@@ -2,6 +2,8 @@ import { client } from "@/sanity/client";
 import { type Product } from "@/components/product/product-card";
 import ShopContent from "./components/ShopContent";
 
+export const runtime = 'edge';
+
 // --- Types ---
 interface FilterOption {
   _id: string;

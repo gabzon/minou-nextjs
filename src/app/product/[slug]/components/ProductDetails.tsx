@@ -15,23 +15,21 @@ interface Product {
   _id: string;
   name: unknown;
   slug: { current: string };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   images: any[];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   description?: any;
   careInstructions?: string;
   price: number;
   discount?: number;
   currency?: string;
-  type?: { name: string; slug: { current: string } };
-  category?: { name: string };
-  collection?: { name: string; slug: { current: string } };
+  type?: { name: unknown; slug: { current: string } };
+  category?: { name: unknown };
+  collection?: { name: unknown; slug: { current: string } };
   tags?: string[];
   isCustomizable?: boolean;
   isFeatured?: boolean;
   isNew?: boolean;
   color?: { name: string; hex: string }[];
-  materials?: { name: unknown }[]; // localized name
+  materials?: { name: unknown }[];
   weight?: number;
   sizeOptions?: string[];
   dimensions?: { length?: number; width?: number; height?: number };
@@ -51,11 +49,13 @@ export default function ProductDetails({ product }: { product: Product }) {
     return dims.join(' × ');
   };
 
+  const productName = getLocalized(product.name) as string;
+
   return (
     <div className="space-y-8 px-4 sm:px-0 pb-10">
       <div>
         <div className="flex justify-between items-start mb-2">
-          <h1 className="text-3xl sm:text-4xl font-bold">{getLocalized(product.name) as string}</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold">{productName}</h1>
           {product.isNew && (
             <Badge variant="secondary" className="bg-primary/10 text-primary border-none uppercase text-[10px] tracking-wider">
               {t('common.newArrival')}
@@ -105,7 +105,7 @@ export default function ProductDetails({ product }: { product: Product }) {
       {/* Order Button */}
       <div className="pt-4">
         <a 
-          href={`https://docs.google.com/forms/d/e/1FAIpQLSfYourFormId/viewform?entry.123456=${encodeURIComponent(getLocalized(product.name) as string)}&entry.789012=${product.sku || ''}`}
+          href={`https://docs.google.com/forms/d/e/1FAIpQLSfYourFormId/viewform?entry.123456=${encodeURIComponent(productName)}&entry.789012=${product.sku || ''}`}
           target="_blank"
           rel="noopener noreferrer"
           className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-full text-base transition-all active:scale-95 shadow-lg shadow-primary/20"
