@@ -29,8 +29,44 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+### Environment Setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Copy the environment template:
+```bash
+cp .env.example .env.local
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. Edit `.env.local` with your Sanity CMS credentials:
+```bash
+NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2024-01-01
+```
+
+## Deploy on Cloudflare Pages
+
+This project is configured for deployment on Cloudflare Pages using `@opennextjs/cloudflare`.
+
+### Prerequisites
+- Cloudflare account with Pages enabled
+- Wrangler CLI installed globally
+- Environment variables configured in Cloudflare dashboard
+
+### Quick Deploy
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Build for Cloudflare:
+```bash
+npm run build:cf
+```
+
+3. Deploy to Cloudflare Pages:
+```bash
+npm run deploy
+```
+
+For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
