@@ -72,7 +72,7 @@ export default function ShopContent({ filters, products: initialProducts, total,
       <div className="py-8 flex flex-col gap-2">
         <h1 className="text-3xl font-extrabold tracking-tight text-foreground">{t('nav.shop')}</h1>
         <p className="text-muted-foreground">
-          Browse our complete collection of handmade jewelry.
+          {t('shop.subtitle')}
         </p>
       </div>
 

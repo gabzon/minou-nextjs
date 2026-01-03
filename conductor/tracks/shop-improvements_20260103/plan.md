@@ -40,10 +40,10 @@
     - Click handler to fetch next page and append to state.
 - [x] Task: Conductor - User Manual Verification '"Load More" Functionality' (Protocol in workflow.md)
 
-## Phase 6: Final Polish & Localization
-- [ ] Task: Add new UI strings (Category, Color, Load More) to `i18n` dictionary.
-- [ ] Task: Ensure localized names for Categories are displayed correctly.
-- [ ] Task: Translate the page subtitle (currently English only) using `siteSettings` or i18n dictionary.
-- [ ] Task: Translate the "All" option in all filter components.
-- [ ] Task: Verify responsive styles and spacing for the new filter components.
-- [ ] Task: Conductor - User Manual Verification 'Final Polish & Localization' (Protocol in workflow.md)
+## Phase 6: Final Polish & Localization [checkpoint: ee67a6f]
+- [x] Task: Add new UI strings (Category, Color, Load More) to `i18n` dictionary.
+- [x] Task: Ensure localized names for Categories are displayed correctly.
+- [x] Task: Translate the page subtitle (currently English only) using `siteSettings` or i18n dictionary.
+- [x] Task: Translate the "All" option in all filter components.
+- [x] Task: Verify responsive styles and spacing for the new filter components.
+- [~] Task: Conductor - User Manual Verification 'Final Polish & Localization' (Protocol in workflow.md)
