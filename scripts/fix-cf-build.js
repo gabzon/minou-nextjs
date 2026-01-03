@@ -43,4 +43,16 @@ itemsToCopy.forEach(item => {
     }
 });
 
+// Generate _routes.json to exclude static assets from being handled by the worker
+// This ensures Cloudflare serves them directly from the CDN
+const routesConfig = {
+    version: 1,
+    include: ["/*"],
+    exclude: ["/_next/static/*", "/favicon.ico"]
+};
+
+const routesPath = path.join(destDir, '_routes.json');
+fs.writeFileSync(routesPath, JSON.stringify(routesConfig, null, 2));
+console.log('   Generated _routes.json to bypass worker for static assets');
+
 console.log('✅ Structure updated successfully. Ready for deployment.');
