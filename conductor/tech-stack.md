@@ -9,6 +9,7 @@
 ## Content Management System (CMS)
 - **Sanity.io:** A headless CMS used for flexible, structured content.
     - Integration: `next-sanity`
+    - **MCP Server:** Configured for local AI context, allowing direct content querying and schema inspection.
     - Content Strategy: Field-level or document-level translation for dual language (HR/EN) support.
 
 ## Styling & UI

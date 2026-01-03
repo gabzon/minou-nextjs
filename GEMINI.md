@@ -9,7 +9,7 @@ This is a Next.js 16 web application, likely a product showcase or e-commerce si
 -   **Styling:** Tailwind CSS v4
 -   **UI Library:** shadcn/ui (Radix UI primitives + Tailwind)
 -   **Icons:** Lucide React
--   **CMS:** Sanity.io (`next-sanity`)
+-   **CMS:** Sanity.io (`next-sanity`) + Sanity MCP Server (AI context)
 -   **Image/Media:** `yet-another-react-lightbox`
 
 ## Key Architecture
@@ -54,6 +54,7 @@ This is a Next.js 16 web application, likely a product showcase or e-commerce si
 
 ### Data Fetching
 -   Data is fetched from Sanity.io. Ensure environment variables (if any) are set up for the Sanity project ID and dataset, although `src/sanity/client.ts` currently has them hardcoded (Review this for production security).
+-   **MCP Integration:** This project is configured with the Sanity MCP server (`npx sanity@latest mcp configure`). This allows AI agents to directly query the CMS content and schema during development.
 
 ### Aliases
 The project is configured with the following path aliases (mapped in `tsconfig.json` and `components.json`):
