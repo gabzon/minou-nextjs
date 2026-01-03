@@ -9,3 +9,4 @@ This file tracks all major tracks for the project. Each track has its own detail
 - [x] Track: Site Navigation (`conductor/tracks/site-navigation/plan.md`)
 - [x] Track: Cloudflare Deployment (`conductor/tracks/deployment/plan.md`)
 - [x] Track: Footer Update (`conductor/tracks/footer-update/plan.md`)
+- [~] Track: Shop Page Improvements (`conductor/tracks/shop-improvements_20260103/plan.md`)

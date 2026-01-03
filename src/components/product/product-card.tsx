@@ -15,6 +15,14 @@ export interface Product {
   discount?: number;
   inStock?: boolean;
   quantity?: number;
+  category?: {
+    name: unknown;
+    slug: { current: string };
+  };
+  color?: {
+    name: string;
+    hex: string;
+  };
 }
 
 export function ProductCard({ product }: { product: Product }) {

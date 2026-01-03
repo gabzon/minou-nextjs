@@ -6,17 +6,20 @@ import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n";
 
 // --- Types ---
-interface FilterOption {
+export interface FilterOption {
   _id: string;
   name: unknown; // localized
-  slug: string;
+  slug?: string;
+  hex?: string; // For colors
 }
 
-interface ShopContentProps {
+export interface ShopContentProps {
   filters: {
     genres: FilterOption[];
     collections: FilterOption[];
     materials: FilterOption[];
+    categories: FilterOption[];
+    colors: FilterOption[];
   };
   products: Product[];
   resolvedParams: { [key: string]: string | string[] | undefined };
@@ -80,7 +83,7 @@ export default function ShopContent({ filters, products, resolvedParams }: ShopC
             {filters.collections.map(c => (
               <Link 
                 key={c._id}
-                href={`/shop?${buildQueryString(resolvedParams, { collection: c.slug })}`}
+                href={`/shop?${buildQueryString(resolvedParams, { collection: c.slug ?? "" })}`}
                 className={cn(
                   "text-sm px-3 py-1 rounded-full transition-colors border",
                   collection === c.slug ? "bg-primary text-white border-primary" : "bg-transparent hover:bg-muted border-border"
@@ -108,7 +111,7 @@ export default function ShopContent({ filters, products, resolvedParams }: ShopC
             {filters.genres.map(g => (
               <Link 
                 key={g._id}
-                href={`/shop?${buildQueryString(resolvedParams, { type: g.slug })}`}
+                href={`/shop?${buildQueryString(resolvedParams, { type: g.slug ?? "" })}`}
                 className={cn(
                   "text-sm px-3 py-1 rounded-full transition-colors border",
                   type === g.slug ? "bg-primary text-white border-primary" : "bg-transparent hover:bg-muted border-border"
@@ -136,7 +139,7 @@ export default function ShopContent({ filters, products, resolvedParams }: ShopC
             {filters.materials.map(m => (
               <Link 
                 key={m._id}
-                href={`/shop?${buildQueryString(resolvedParams, { material: m.slug })}`}
+                href={`/shop?${buildQueryString(resolvedParams, { material: m.slug ?? "" })}`}
                 className={cn(
                   "text-sm px-3 py-1 rounded-full transition-colors border",
                   material === m.slug ? "bg-primary text-white border-primary" : "bg-transparent hover:bg-muted border-border"
