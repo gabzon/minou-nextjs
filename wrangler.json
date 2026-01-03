@@ -5,5 +5,10 @@
   "compatibility_flags": [
     "nodejs_compat"
   ],
-  "pages_build_output_dir": ".open-next/assets"
+  "pages_build_output_dir": ".open-next/assets",
+  "vars": {
+    "NEXT_PUBLIC_SANITY_PROJECT_ID": "5nz4uhz2",
+    "NEXT_PUBLIC_SANITY_DATASET": "production",
+    "NEXT_PUBLIC_SANITY_API_VERSION": "2024-01-01"
+  }
 }
