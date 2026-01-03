@@ -2,7 +2,7 @@ import { client } from "@/sanity/client";
 import { type Product } from "@/components/product/product-card";
 import ShopContent from "./components/ShopContent";
 
-export const runtime = 'edge';
+
 
 // --- Types ---
 interface FilterOption {
@@ -55,10 +55,10 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
 
   return (
     <main className="pb-12 bg-background min-h-screen">
-      <ShopContent 
-        filters={filters} 
-        products={products} 
-        resolvedParams={resolvedParams} 
+      <ShopContent
+        filters={filters}
+        products={products}
+        resolvedParams={resolvedParams}
       />
     </main>
   );

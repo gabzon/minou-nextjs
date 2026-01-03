@@ -6,7 +6,7 @@ import ProductDetails from "./components/ProductDetails";
 import ProductBreadcrumbs from "./components/ProductBreadcrumbs";
 import { getLocalizedValue } from "@/lib/utils/i18n-helpers";
 
-export const runtime = 'edge';
+
 
 interface Product {
   _id: string;
@@ -73,7 +73,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = await client.fetch<Product>(PRODUCT_QUERY, { slug });
-  
+
   if (!product) {
     return {
       title: 'Product Not Found',
@@ -95,7 +95,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
   const product = await client.fetch<Product>(PRODUCT_QUERY, { slug });
-  
+
   if (!product) {
     notFound();
   }
