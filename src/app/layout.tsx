@@ -6,6 +6,7 @@ import { MainLayout } from "@/components/layout/main-layout";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { LanguageProvider } from "@/lib/i18n";
+import { client } from "@/sanity/client";
 
 const jakartaSans = Plus_Jakarta_Sans({
   variable: "--font-jakarta-sans",
@@ -18,11 +19,30 @@ export const metadata: Metadata = {
   description: "Handmade jewelry for your everyday play.",
 };
 
-export default function RootLayout({
+async function getSiteSettings() {
+  try {
+    return await client.fetch(`*[_type == "siteSettings"][0]{
+      contactEmail,
+      socialLinks {
+        instagram,
+        facebook,
+        tiktok,
+        youtube
+      }
+    }`);
+  } catch (error) {
+    console.error("Failed to fetch site settings:", error);
+    return null;
+  }
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const settings = await getSiteSettings();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -38,7 +58,7 @@ export default function RootLayout({
             <MainLayout>
               <Header />
               {children}
-              <Footer />
+              <Footer settings={settings} />
             </MainLayout>
           </LanguageProvider>
         </ThemeProvider>

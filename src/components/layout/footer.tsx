@@ -1,11 +1,41 @@
 "use client"
 
-import { Mail, Instagram } from "lucide-react"
+import { Mail, Instagram, Facebook, Youtube } from "lucide-react"
 import Link from "next/link"
 import { useLanguage } from "@/lib/i18n"
 
-export function Footer() {
+const TikTokIcon = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    height="1em"
+    width="1em"
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+  </svg>
+)
+
+export interface FooterSettings {
+  contactEmail?: string;
+  socialLinks?: {
+    instagram?: string;
+    facebook?: string;
+    tiktok?: string;
+    youtube?: string;
+  }
+}
+
+interface FooterProps {
+  settings?: FooterSettings | null;
+}
+
+export function Footer({ settings }: FooterProps) {
   const { t } = useLanguage();
+
+  const socialLinks = settings?.socialLinks;
+  const contactEmail = settings?.contactEmail;
 
   return (
     <footer className="bg-card dark:bg-card py-12 px-6 text-center border-t border-border mt-auto">
@@ -30,22 +60,65 @@ export function Footer() {
 
       <div className="flex flex-col items-center gap-4 mb-8">
         <div className="flex justify-center gap-6">
-          <a 
-            href="mailto:hello@minou.hr" 
-            className="w-12 h-12 rounded-full bg-background flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform"
-          >
-            <Mail className="h-6 w-6" />
-          </a>
-          <a 
-            href="https://instagram.com/minou_handmade" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="w-12 h-12 rounded-full bg-background flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform"
-          >
-            <Instagram className="h-6 w-6" />
-          </a>
+          {contactEmail && (
+            <a 
+              href={`mailto:${contactEmail}`} 
+              className="w-12 h-12 rounded-full bg-background flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform"
+              aria-label="Email Us"
+            >
+              <Mail className="h-6 w-6" />
+            </a>
+          )}
+          
+          {socialLinks?.instagram && (
+            <a 
+              href={socialLinks.instagram} 
+              target="_blank" 
+              rel="noopener noreferrer nofollow"
+              className="w-12 h-12 rounded-full bg-background flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform"
+              aria-label="Instagram"
+            >
+              <Instagram className="h-6 w-6" />
+            </a>
+          )}
+
+          {socialLinks?.facebook && (
+            <a 
+              href={socialLinks.facebook} 
+              target="_blank" 
+              rel="noopener noreferrer nofollow"
+              className="w-12 h-12 rounded-full bg-background flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform"
+              aria-label="Facebook"
+            >
+              <Facebook className="h-6 w-6" />
+            </a>
+          )}
+
+          {socialLinks?.tiktok && (
+            <a 
+              href={socialLinks.tiktok} 
+              target="_blank" 
+              rel="noopener noreferrer nofollow"
+              className="w-12 h-12 rounded-full bg-background flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform"
+              aria-label="TikTok"
+            >
+              <TikTokIcon className="h-6 w-6" />
+            </a>
+          )}
+
+          {socialLinks?.youtube && (
+            <a 
+              href={socialLinks.youtube} 
+              target="_blank" 
+              rel="noopener noreferrer nofollow"
+              className="w-12 h-12 rounded-full bg-background flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform"
+              aria-label="YouTube"
+            >
+              <Youtube className="h-6 w-6" />
+            </a>
+          )}
         </div>
-        <p className="text-sm font-medium text-muted-foreground">info@minou.hr</p>
+        {/* Removed text email as requested */}
       </div>
 
       <div className="flex justify-center gap-4 text-xs font-semibold text-muted-foreground mb-6">
