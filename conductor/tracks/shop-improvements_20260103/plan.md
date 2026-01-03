@@ -16,14 +16,14 @@
 - [x] Task: Conductor - User Manual Verification 'Filter Logic & State Management' (Protocol in workflow.md)
 
 ## Phase 3: Desktop Filter UI Components
-- [ ] Task: Update `FilterSidebar` component structure to match the new order: Type > Category > Collection > Color.
-- [ ] Task: Implement `CategorySelect` component (Dropdown/Select).
-- [ ] Task: Implement `ColorSwatches` component.
+- [x] Task: Update `FilterSidebar` component structure to match the new order: Type > Category > Collection > Color.
+- [x] Task: Implement `CategorySelect` component (Dropdown/Select).
+- [x] Task: Implement `ColorSwatches` component.
     - Render circles with background color from `hex` field.
     - Show tooltip on hover with color name.
     - Indicate selected state clearly (e.g., ring border).
-- [ ] Task: Rename "Genre" section header to "Type".
-- [ ] Task: Conductor - User Manual Verification 'Desktop Filter UI Components' (Protocol in workflow.md)
+- [x] Task: Rename "Genre" section header to "Type".
+- [~] Task: Conductor - User Manual Verification 'Desktop Filter UI Components' (Protocol in workflow.md)
 
 ## Phase 4: Mobile Filter Drawer
 - [ ] Task: Create a `MobileFilterTrigger` button component (visible only on mobile).

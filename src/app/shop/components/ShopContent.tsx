@@ -5,6 +5,8 @@ import { ProductCard, type Product } from "@/components/product/product-card";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n";
 import { useFilter } from "../hooks/use-filter";
+import CategorySelect from "./CategorySelect";
+import ColorSwatches from "./ColorSwatches";
 
 // --- Types ---
 export interface FilterOption {
@@ -28,7 +30,7 @@ export interface ShopContentProps {
 
 export default function ShopContent({ filters, products, resolvedParams }: ShopContentProps) {
   const { t, getLocalized } = useLanguage();
-  const { getFilterUrl } = useFilter();
+  const { getFilterUrl, setFilter } = useFilter();
 
   const type = typeof resolvedParams.type === 'string' ? resolvedParams.type : undefined;
   const collection = typeof resolvedParams.collection === 'string' ? resolvedParams.collection : undefined;
@@ -47,38 +49,10 @@ export default function ShopContent({ filters, products, resolvedParams }: ShopC
       </div>
 
       {/* Filters (Simple Top Bar) */}
-      <div className="flex flex-wrap gap-x-8 gap-y-6 mb-8 border-y border-border py-6">
+      <div className="flex flex-wrap items-end gap-x-10 gap-y-6 mb-8 border-y border-border py-6">
         
-        {/* Collection/Theme Filter */}
-        <div className="flex flex-col gap-2">
-          <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{t('shop.filters.collection')}</h3>
-          <div className="flex flex-wrap gap-2">
-            <Link 
-              href={getFilterUrl('collection', '')}
-              className={cn(
-                "text-sm px-3 py-1 rounded-full transition-colors border",
-                !collection ? "bg-primary text-white border-primary" : "bg-transparent hover:bg-muted border-border"
-              )}
-            >
-              All
-            </Link>
-            {filters.collections.map(c => (
-              <Link 
-                key={c._id}
-                href={getFilterUrl('collection', c.slug ?? '')}
-                className={cn(
-                  "text-sm px-3 py-1 rounded-full transition-colors border",
-                  collection === c.slug ? "bg-primary text-white border-primary" : "bg-transparent hover:bg-muted border-border"
-                )}
-              >
-                {getLocalized(c.name) as string}
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* Type Filter */}
-        <div className="flex flex-col gap-2">
+        {/* 1. Type Filter */}
+        <div className="flex flex-col gap-3">
           <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{t('shop.filters.type')}</h3>
           <div className="flex flex-wrap gap-2">
             <Link 
@@ -88,7 +62,7 @@ export default function ShopContent({ filters, products, resolvedParams }: ShopC
                 !type ? "bg-primary text-white border-primary" : "bg-transparent hover:bg-muted border-border"
               )}
             >
-              All
+              {t('shop.filters.all') || 'All'}
             </Link>
             {filters.genres.map(g => (
               <Link 
@@ -105,31 +79,62 @@ export default function ShopContent({ filters, products, resolvedParams }: ShopC
           </div>
         </div>
 
-        {/* Material Filter */}
-        <div className="flex flex-col gap-2">
-          <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{t('shop.filters.material')}</h3>
+        {/* 2. Category Filter (Dropdown) */}
+        <div className="flex flex-col gap-3 min-w-[200px]">
+          <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{t('product.category')}</h3>
+          <CategorySelect 
+            categories={filters.categories}
+            selectedCategory={category}
+            onChange={(val) => setFilter('category', val)}
+          />
+        </div>
+
+        {/* 3. Collection Filter */}
+        <div className="flex flex-col gap-3">
+          <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{t('shop.filters.collection')}</h3>
           <div className="flex flex-wrap gap-2">
             <Link 
-              href={getFilterUrl('material', '')}
+              href={getFilterUrl('collection', '')}
               className={cn(
                 "text-sm px-3 py-1 rounded-full transition-colors border",
-                !material ? "bg-primary text-white border-primary" : "bg-transparent hover:bg-muted border-border"
+                !collection ? "bg-primary text-white border-primary" : "bg-transparent hover:bg-muted border-border"
               )}
             >
-              All
+              {t('shop.filters.all') || 'All'}
             </Link>
-            {filters.materials.map(m => (
+            {filters.collections.map(c => (
               <Link 
-                key={m._id}
-                href={getFilterUrl('material', m.slug ?? '')}
+                key={c._id}
+                href={getFilterUrl('collection', c.slug ?? '')}
                 className={cn(
                   "text-sm px-3 py-1 rounded-full transition-colors border",
-                  material === m.slug ? "bg-primary text-white border-primary" : "bg-transparent hover:bg-muted border-border"
+                  collection === c.slug ? "bg-primary text-white border-primary" : "bg-transparent hover:bg-muted border-border"
                 )}
               >
-                {getLocalized(m.name) as string}
+                {getLocalized(c.name) as string}
               </Link>
             ))}
+          </div>
+        </div>
+
+        {/* 4. Color Filter (Swatches) */}
+        <div className="flex flex-col gap-3">
+          <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{t('product.colors')}</h3>
+          <div className="flex items-center gap-4">
+             <Link 
+                href={getFilterUrl('color', '')}
+                className={cn(
+                  "text-xs font-medium px-2 py-1 rounded transition-colors",
+                  !color ? "text-primary font-bold underline underline-offset-4" : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                {t('shop.filters.all') || 'All'}
+              </Link>
+              <ColorSwatches 
+                colors={filters.colors}
+                selectedColor={color}
+                onSelect={(val) => setFilter('color', val)}
+              />
           </div>
         </div>
 
