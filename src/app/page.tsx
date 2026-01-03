@@ -6,7 +6,7 @@ import { ProductGrid } from "@/components/home/product-grid";
 import { type Product } from "@/components/product/product-card";
 import { type SanityImageSource } from "@sanity/image-url";
 
-export const runtime = 'edge';
+
 
 interface Collection {
   _id: string
