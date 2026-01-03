@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:cf": "opennextjs-cloudflare build",
-    "preview": "npm run build:cf && wrangler pages dev .open-next",
-    "deploy": "npm run build:cf && wrangler pages deploy .open-next",
+    "build:cf": "opennextjs-cloudflare build && node scripts/fix-cf-build.js",
+    "preview": "npm run build:cf && wrangler pages dev .open-next/assets",
+    "deploy": "npm run build:cf && wrangler pages deploy .open-next/assets",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest"
