@@ -6,14 +6,14 @@
 - [x] Task: Create helper functions to extract unique filter options (Types, Collections, Categories, Colors) from the fetched product set.
 - [x] Task: Conductor - User Manual Verification 'Data Fetching & Taxonomy Updates' (Protocol in workflow.md)
 
-## Phase 2: Filter Logic & State Management
+## Phase 2: Filter Logic & State Management [checkpoint: edb7019]
 - [x] Task: Refactor `useFilter` hook (or equivalent) to support:
     - Renaming "Genre" to "Type".
     - Single-select logic for "Categories".
     - Color filtering logic.
     - Preserving existing Collection logic.
 - [x] Task: Update URL parameter handling to sync new filter states (`category`, `color`, `type`) with the browser URL.
-- [~] Task: Conductor - User Manual Verification 'Filter Logic & State Management' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Filter Logic & State Management' (Protocol in workflow.md)
 
 ## Phase 3: Desktop Filter UI Components
 - [ ] Task: Update `FilterSidebar` component structure to match the new order: Type > Category > Collection > Color.
