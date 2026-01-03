@@ -1,0 +1,33 @@
+"use server";
+
+import { client } from "@/sanity/client";
+import { type Product } from "@/components/product/product-card";
+
+export async function fetchMoreProducts(offset: number, limit: number, filters: {
+  type?: string;
+  collection?: string;
+  material?: string;
+  category?: string;
+  color?: string;
+}) {
+  const typeFilter = filters.type ? `&& type->slug.current == "${filters.type}"` : "";
+  const collectionFilter = filters.collection ? `&& collection->slug.current == "${filters.collection}"` : "";
+  const materialFilter = filters.material ? `&& count((materials[]->slug.current)[@ == "${filters.material}"]) > 0` : "";
+  const categoryFilter = filters.category ? `&& category->slug.current == "${filters.category}"` : "";
+  const colorFilter = filters.color ? `&& color->name == "${filters.color}"` : "";
+
+  const query = `*[_type == "products" && inStock == true && quantity > 0 ${typeFilter} ${collectionFilter} ${materialFilter} ${categoryFilter} ${colorFilter}] | order(_createdAt desc)[${offset}...${offset + limit}]{
+    _id,
+    name,
+    slug,
+    price,
+    images,
+    isNew,
+    inStock,
+    quantity,
+    category->{name, "slug": slug.current},
+    color->{name, hex}
+  }`;
+
+  return client.fetch<Product[]>(query, {}, { next: { revalidate: 0 } });
+}

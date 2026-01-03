@@ -39,21 +39,24 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
   const colorFilter = color ? `&& color->name == "${color}"` : ""; // Or use ID/Slug if available. 
   // Color schema provided earlier didn't have slug, just name and hex. So filtering by name.
 
-  const PRODUCTS_QUERY = `*[_type == "products" && inStock == true && quantity > 0 ${typeFilter} ${collectionFilter} ${materialFilter} ${categoryFilter} ${colorFilter}] | order(_createdAt desc){
-    _id,
-    name,
-    slug,
-    price,
-    images,
-    isNew,
-    inStock,
-    quantity,
-    category->{name, "slug": slug.current},
-    color->{name, hex}
+  const PRODUCTS_QUERY = `{
+    "items": *[_type == "products" && inStock == true && quantity > 0 ${typeFilter} ${collectionFilter} ${materialFilter} ${categoryFilter} ${colorFilter}] | order(_createdAt desc)[0...12]{
+      _id,
+      name,
+      slug,
+      price,
+      images,
+      isNew,
+      inStock,
+      quantity,
+      category->{name, "slug": slug.current},
+      color->{name, hex}
+    },
+    "total": count(*[_type == "products" && inStock == true && quantity > 0 ${typeFilter} ${collectionFilter} ${materialFilter} ${categoryFilter} ${colorFilter}])
   }`;
 
   // Fetch data in parallel
-  const [filters, products] = await Promise.all([
+  const [filters, productData] = await Promise.all([
     client.fetch<{ 
       genres: FilterOption[], 
       collections: FilterOption[], 
@@ -61,14 +64,15 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
       categories: FilterOption[],
       colors: FilterOption[]
     }>(FILTERS_QUERY, {}, options),
-    client.fetch<Product[]>(PRODUCTS_QUERY, {}, options)
+    client.fetch<{ items: Product[], total: number }>(PRODUCTS_QUERY, {}, options)
   ]);
 
   return (
     <main className="pb-12 bg-background min-h-screen">
       <ShopContent
         filters={filters}
-        products={products}
+        products={productData.items}
+        total={productData.total}
         resolvedParams={resolvedParams}
       />
     </main>
