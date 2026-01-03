@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ProductCard, type Product } from "@/components/product/product-card";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n";
+import { useFilter } from "../hooks/use-filter";
 
 // --- Types ---
 export interface FilterOption {
@@ -25,34 +26,15 @@ export interface ShopContentProps {
   resolvedParams: { [key: string]: string | string[] | undefined };
 }
 
-// --- Helper to build query string safely ---
-function buildQueryString(params: { [key: string]: string | string[] | undefined }, updates: { [key: string]: string }) {
-  const newParams = new URLSearchParams();
-  
-  // Add existing params if they are strings
-  Object.entries(params).forEach(([key, value]) => {
-    if (typeof value === 'string') {
-      newParams.set(key, value);
-    }
-  });
-
-  // Apply updates
-  Object.entries(updates).forEach(([key, value]) => {
-    if (value) {
-      newParams.set(key, value);
-    } else {
-      newParams.delete(key);
-    }
-  });
-
-  return newParams.toString();
-}
-
 export default function ShopContent({ filters, products, resolvedParams }: ShopContentProps) {
   const { t, getLocalized } = useLanguage();
+  const { getFilterUrl } = useFilter();
+
   const type = typeof resolvedParams.type === 'string' ? resolvedParams.type : undefined;
   const collection = typeof resolvedParams.collection === 'string' ? resolvedParams.collection : undefined;
   const material = typeof resolvedParams.material === 'string' ? resolvedParams.material : undefined;
+  const category = typeof resolvedParams.category === 'string' ? resolvedParams.category : undefined;
+  const color = typeof resolvedParams.color === 'string' ? resolvedParams.color : undefined;
 
   return (
     <div className="container mx-auto max-w-7xl px-4">
@@ -72,7 +54,7 @@ export default function ShopContent({ filters, products, resolvedParams }: ShopC
           <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{t('shop.filters.collection')}</h3>
           <div className="flex flex-wrap gap-2">
             <Link 
-              href={`/shop?${buildQueryString(resolvedParams, { collection: '' })}`}
+              href={getFilterUrl('collection', '')}
               className={cn(
                 "text-sm px-3 py-1 rounded-full transition-colors border",
                 !collection ? "bg-primary text-white border-primary" : "bg-transparent hover:bg-muted border-border"
@@ -83,7 +65,7 @@ export default function ShopContent({ filters, products, resolvedParams }: ShopC
             {filters.collections.map(c => (
               <Link 
                 key={c._id}
-                href={`/shop?${buildQueryString(resolvedParams, { collection: c.slug ?? "" })}`}
+                href={getFilterUrl('collection', c.slug ?? '')}
                 className={cn(
                   "text-sm px-3 py-1 rounded-full transition-colors border",
                   collection === c.slug ? "bg-primary text-white border-primary" : "bg-transparent hover:bg-muted border-border"
@@ -100,7 +82,7 @@ export default function ShopContent({ filters, products, resolvedParams }: ShopC
           <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{t('shop.filters.type')}</h3>
           <div className="flex flex-wrap gap-2">
             <Link 
-              href={`/shop?${buildQueryString(resolvedParams, { type: '' })}`}
+              href={getFilterUrl('type', '')}
               className={cn(
                 "text-sm px-3 py-1 rounded-full transition-colors border",
                 !type ? "bg-primary text-white border-primary" : "bg-transparent hover:bg-muted border-border"
@@ -111,7 +93,7 @@ export default function ShopContent({ filters, products, resolvedParams }: ShopC
             {filters.genres.map(g => (
               <Link 
                 key={g._id}
-                href={`/shop?${buildQueryString(resolvedParams, { type: g.slug ?? "" })}`}
+                href={getFilterUrl('type', g.slug ?? '')}
                 className={cn(
                   "text-sm px-3 py-1 rounded-full transition-colors border",
                   type === g.slug ? "bg-primary text-white border-primary" : "bg-transparent hover:bg-muted border-border"
@@ -128,7 +110,7 @@ export default function ShopContent({ filters, products, resolvedParams }: ShopC
           <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{t('shop.filters.material')}</h3>
           <div className="flex flex-wrap gap-2">
             <Link 
-              href={`/shop?${buildQueryString(resolvedParams, { material: '' })}`}
+              href={getFilterUrl('material', '')}
               className={cn(
                 "text-sm px-3 py-1 rounded-full transition-colors border",
                 !material ? "bg-primary text-white border-primary" : "bg-transparent hover:bg-muted border-border"
@@ -139,7 +121,7 @@ export default function ShopContent({ filters, products, resolvedParams }: ShopC
             {filters.materials.map(m => (
               <Link 
                 key={m._id}
-                href={`/shop?${buildQueryString(resolvedParams, { material: m.slug ?? "" })}`}
+                href={getFilterUrl('material', m.slug ?? '')}
                 className={cn(
                   "text-sm px-3 py-1 rounded-full transition-colors border",
                   material === m.slug ? "bg-primary text-white border-primary" : "bg-transparent hover:bg-muted border-border"
