@@ -21,15 +21,25 @@ export const metadata: Metadata = {
 
 async function getSiteSettings() {
   try {
-    return await client.fetch(`*[_type == "siteSettings"][0]{
-      contactEmail,
-      socialLinks {
-        instagram,
-        facebook,
-        tiktok,
-        youtube
-      }
+    const data = await client.fetch(`*[_type == "siteSettings"][0]{
+      email,
+      instagram,
+      facebook,
+      tiktok,
+      youtube
     }`);
+
+    if (!data) return null;
+
+    return {
+      contactEmail: data.email,
+      socialLinks: {
+        instagram: data.instagram,
+        facebook: data.facebook,
+        tiktok: data.tiktok,
+        youtube: data.youtube,
+      },
+    };
   } catch (error) {
     console.error("Failed to fetch site settings:", error);
     return null;
