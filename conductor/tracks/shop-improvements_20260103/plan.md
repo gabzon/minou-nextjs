@@ -15,7 +15,7 @@
 - [x] Task: Update URL parameter handling to sync new filter states (`category`, `color`, `type`) with the browser URL.
 - [x] Task: Conductor - User Manual Verification 'Filter Logic & State Management' (Protocol in workflow.md)
 
-## Phase 3: Desktop Filter UI Components
+## Phase 3: Desktop Filter UI Components [checkpoint: a5de44b]
 - [x] Task: Update `FilterSidebar` component structure to match the new order: Type > Category > Collection > Color.
 - [x] Task: Implement `CategorySelect` component (Dropdown/Select).
 - [x] Task: Implement `ColorSwatches` component.
@@ -23,7 +23,7 @@
     - Show tooltip on hover with color name.
     - Indicate selected state clearly (e.g., ring border).
 - [x] Task: Rename "Genre" section header to "Type".
-- [~] Task: Conductor - User Manual Verification 'Desktop Filter UI Components' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Desktop Filter UI Components' (Protocol in workflow.md)
 
 ## Phase 4: Mobile Filter Drawer
 - [ ] Task: Create a `MobileFilterTrigger` button component (visible only on mobile).
