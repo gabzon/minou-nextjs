@@ -1,10 +1,10 @@
 # Track Plan: Shop Page Improvements
 
-## Phase 1: Data Fetching & Taxonomy Updates
+## Phase 1: Data Fetching & Taxonomy Updates [checkpoint: d56c4ff]
 - [x] Task: Update Sanity queries to fetch `categories` and `colors`.
 - [x] Task: Update the `Product` interface to include category and color data.
 - [x] Task: Create helper functions to extract unique filter options (Types, Collections, Categories, Colors) from the fetched product set.
-- [~] Task: Conductor - User Manual Verification 'Data Fetching & Taxonomy Updates' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Data Fetching & Taxonomy Updates' (Protocol in workflow.md)
 
 ## Phase 2: Filter Logic & State Management
 - [ ] Task: Refactor `useFilter` hook (or equivalent) to support:
