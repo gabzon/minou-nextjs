@@ -25,12 +25,12 @@
 - [x] Task: Rename "Genre" section header to "Type".
 - [x] Task: Conductor - User Manual Verification 'Desktop Filter UI Components' (Protocol in workflow.md)
 
-## Phase 4: Mobile Filter Drawer
-- [ ] Task: Create a `MobileFilterTrigger` button component (visible only on mobile).
-- [ ] Task: Implement a `FilterSheet` component using `shadcn/ui` Sheet.
-- [ ] Task: Move the `FilterSidebar` content into the `FilterSheet` for mobile.
-- [ ] Task: Ensure close button and "Apply" (or live update) functionality works within the drawer.
-- [ ] Task: Conductor - User Manual Verification 'Mobile Filter Drawer' (Protocol in workflow.md)
+## Phase 4: Mobile Filter Drawer [checkpoint: 2a496c5]
+- [x] Task: Create a `MobileFilterTrigger` button component (visible only on mobile).
+- [x] Task: Implement a `FilterSheet` component using `shadcn/ui` Sheet.
+- [x] Task: Move the `FilterSidebar` content into the `FilterSheet` for mobile.
+- [x] Task: Ensure close button and "Apply" (or live update) functionality works within the drawer.
+- [~] Task: Conductor - User Manual Verification 'Mobile Filter Drawer' (Protocol in workflow.md)
 
 ## Phase 5: "Load More" Functionality
 - [ ] Task: Update the main product query to support pagination (limit/offset or cursor-based).
