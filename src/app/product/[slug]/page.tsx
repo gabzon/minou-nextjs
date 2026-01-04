@@ -27,7 +27,7 @@ interface Product {
   isCustomizable?: boolean;
   isFeatured?: boolean;
   isNew?: boolean;
-  color?: { name: string; hex: string }[];
+  color?: Array<{ name: string; hex: string }>;
   materials?: { name: unknown }[];
   weight?: number;
   sizeOptions?: string[];
@@ -38,32 +38,35 @@ interface Product {
   seo?: { metaTitle?: unknown; metaDescription?: unknown };
 }
 
-const PRODUCT_QUERY = `*[_type == "products" && slug.current == $slug][0]{
-  _id,
-  name,
-  slug,
-  images,
-  description,
-  careInstructions,
-  price,
-  discount,
-  currency,
-  type->{name, slug},
-  category->{name},
-  collection->{name, slug},
-  tags,
-  isCustomizable,
-  isFeatured,
-  isNew,
-  color[]->{name, hex},
-  materials[]->{name},
-  weight,
-  sizeOptions,
-  dimensions{length, width, height},
-  inStock,
-  quantity,
-  sku,
-  seo{metaTitle, metaDescription}
+const PRODUCT_QUERY = `{
+  "product": *[_type == "products" && slug.current == $slug][0]{
+    _id,
+    name,
+    slug,
+    images,
+    description,
+    careInstructions,
+    price,
+    discount,
+    currency,
+    type->{name, slug},
+    category->{name},
+    collection->{name, slug},
+    tags,
+    isCustomizable,
+    isFeatured,
+    isNew,
+    color[]->{name, hex},
+    materials[]->{name},
+    weight,
+    sizeOptions,
+    dimensions{length, width, height},
+    inStock,
+    quantity,
+    sku,
+    seo{metaTitle, metaDescription}
+  },
+  "phone": *[_type == "siteSettings"][0].phone
 }`;
 
 interface Props {
@@ -72,7 +75,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const product = await client.fetch<Product>(PRODUCT_QUERY, { slug });
+  const { product } = await client.fetch<{ product: Product }>(PRODUCT_QUERY, { slug });
 
   if (!product) {
     return {
@@ -94,7 +97,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
-  const product = await client.fetch<Product>(PRODUCT_QUERY, { slug });
+  const { product, phone } = await client.fetch<{ product: Product, phone: string }>(PRODUCT_QUERY, { slug });
 
   if (!product) {
     notFound();
@@ -109,7 +112,7 @@ export default async function ProductPage({ params }: Props) {
           <ImageGallery images={product.images} />
         </div>
 
-        <ProductDetails product={product as any} />
+        <ProductDetails product={product as any} phone={phone} />
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingBag } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -38,7 +39,7 @@ interface Product {
   sku?: string;
 }
 
-export default function ProductDetails({ product }: { product: Product }) {
+export default function ProductDetails({ product, phone }: { product: Product, phone?: string }) {
   const { t, getLocalized, language } = useLanguage();
 
   const formatDimensions = () => {
@@ -50,6 +51,17 @@ export default function ProductDetails({ product }: { product: Product }) {
   };
 
   const productName = getLocalized(product.name) as string;
+  const [currentUrl, setCurrentUrl] = useState('');
+
+  useEffect(() => {
+    setCurrentUrl(window.location.href);
+  }, []);
+  
+  const whatsappMessage = language === 'en' 
+    ? `Hi! I'm interested in this product: ${productName}\n\n${currentUrl}\n\nIs it still available?`
+    : `Bok! Zanima me ovaj proizvod: ${productName}\n\n${currentUrl}\n\nJe li još uvijek dostupno?`;
+
+  const whatsappLink = `https://wa.me/${phone?.replace(/\D/g, '')}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <div className="space-y-8 px-4 sm:px-0 pb-10">
@@ -105,16 +117,16 @@ export default function ProductDetails({ product }: { product: Product }) {
       {/* Order Button */}
       <div className="pt-4">
         <a 
-          href={`https://docs.google.com/forms/d/e/1FAIpQLSfYourFormId/viewform?entry.123456=${encodeURIComponent(productName)}&entry.789012=${product.sku || ''}`}
+          href={whatsappLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-full text-base transition-all active:scale-95 shadow-lg shadow-primary/20"
+          className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#25D366]/90 text-white font-bold py-3 px-6 rounded-full text-base transition-all active:scale-95 shadow-lg shadow-[#25D366]/20"
         >
-          <ShoppingBag className="h-5 w-5" />
-          {language === 'en' ? 'Order This Item' : 'Naruči ovaj proizvod'}
+          <MessageCircle className="h-5 w-5" />
+          {language === 'en' ? 'Order via WhatsApp' : 'Naruči putem WhatsAppa'}
         </a>
         <p className="text-center text-xs text-muted-foreground mt-3 italic">
-          {language === 'en' ? 'Orders are processed manually via Google Form' : 'Narudžbe se obrađuju ručno putem Google obrasca'}
+          {language === 'en' ? 'Clicking opens WhatsApp with a prefilled message' : 'Klikom se otvara WhatsApp s unaprijed upisanim tekstom'}
         </p>
       </div>
 
