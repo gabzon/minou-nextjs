@@ -18,7 +18,7 @@ export const DICTIONARY: Record<string, Record<Language, string>> = {
   "common.customizable": { en: "Customizable", hr: "Prilagodljivo" },
   "common.viewAll": { en: "View All Products", hr: "Pogledaj sve" },
   "common.shopByType": { en: "Shop by Type", hr: "Kupuj po vrsti" },
-  "common.freshlyBaked": { en: "Freshly Baked", hr: "Svježe pečeno" },
+  "common.freshlyBaked": { en: "New arrivals", hr: "Novo u ponudi" },
   "product.details": { en: "Specifications", hr: "Specifikacije" },
   "product.care": { en: "Care Instructions", hr: "Upute za njegu" },
   "product.category": { en: "Category", hr: "Kategorija" },
@@ -57,7 +57,7 @@ export const DICTIONARY: Record<string, Record<Language, string>> = {
 // --- Standalone Helper for Server Components ---
 export const getLocalizedValue = (value: unknown, language: Language): unknown => {
   if (value === undefined || value === null) return value;
-  
+
   if (Array.isArray(value)) {
     return value;
   }

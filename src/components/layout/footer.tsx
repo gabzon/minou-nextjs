@@ -39,7 +39,7 @@ export function Footer({ settings }: FooterProps) {
 
   return (
     <footer className="bg-card dark:bg-card py-12 px-6 text-center border-t border-border mt-auto">
-      <div className="max-w-xs mx-auto mb-8">
+      {/* <div className="max-w-xs mx-auto mb-8">
         <h3 className="font-bold text-lg mb-2">{t('footer.joinClub')}</h3>
         <p className="text-muted-foreground text-sm mb-4">{t('footer.newsletterDesc')}</p>
         <form className="flex flex-col gap-2" onSubmit={(e) => e.preventDefault()}>
@@ -56,24 +56,24 @@ export function Footer({ settings }: FooterProps) {
             {t('footer.subscribe')}
           </button>
         </form>
-      </div>
+      </div> */}
 
       <div className="flex flex-col items-center gap-4 mb-8">
         <div className="flex justify-center gap-6">
           {contactEmail && (
-            <a 
-              href={`mailto:${contactEmail}`} 
+            <a
+              href={`mailto:${contactEmail}`}
               className="w-12 h-12 rounded-full bg-background flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform"
               aria-label="Email Us"
             >
               <Mail className="h-6 w-6" />
             </a>
           )}
-          
+
           {socialLinks?.instagram && (
-            <a 
-              href={socialLinks.instagram} 
-              target="_blank" 
+            <a
+              href={socialLinks.instagram}
+              target="_blank"
               rel="noopener noreferrer nofollow"
               className="w-12 h-12 rounded-full bg-background flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform"
               aria-label="Instagram"
@@ -83,9 +83,9 @@ export function Footer({ settings }: FooterProps) {
           )}
 
           {socialLinks?.facebook && (
-            <a 
-              href={socialLinks.facebook} 
-              target="_blank" 
+            <a
+              href={socialLinks.facebook}
+              target="_blank"
               rel="noopener noreferrer nofollow"
               className="w-12 h-12 rounded-full bg-background flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform"
               aria-label="Facebook"
@@ -95,9 +95,9 @@ export function Footer({ settings }: FooterProps) {
           )}
 
           {socialLinks?.tiktok && (
-            <a 
-              href={socialLinks.tiktok} 
-              target="_blank" 
+            <a
+              href={socialLinks.tiktok}
+              target="_blank"
               rel="noopener noreferrer nofollow"
               className="w-12 h-12 rounded-full bg-background flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform"
               aria-label="TikTok"
@@ -107,9 +107,9 @@ export function Footer({ settings }: FooterProps) {
           )}
 
           {socialLinks?.youtube && (
-            <a 
-              href={socialLinks.youtube} 
-              target="_blank" 
+            <a
+              href={socialLinks.youtube}
+              target="_blank"
               rel="noopener noreferrer nofollow"
               className="w-12 h-12 rounded-full bg-background flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform"
               aria-label="YouTube"

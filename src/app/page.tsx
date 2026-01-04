@@ -32,6 +32,8 @@ const FRESH_PRODUCTS_QUERY = `*[_type == "products" && isNew == true] | order(_c
 
   price, 
 
+  discount,
+
   images, 
 
   isNew
@@ -49,6 +51,8 @@ const FEATURED_PRODUCTS_QUERY = `*[_type == "products" && isFeatured == true] | 
   slug, 
 
   price, 
+
+  discount,
 
   images, 
 

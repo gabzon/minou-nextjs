@@ -15,7 +15,7 @@ const FILTERS_QUERY = `{
   "collections": *[_type == "collection" && isFeatured == true] | order(name asc) { _id, name, "slug": slug.current },
   "materials": *[_type == "material"] | order(name asc) { _id, name, "slug": slug.current },
   "categories": *[_type == "category"] | order(name.en asc) { _id, name, "slug": slug.current },
-  "colors": *[_type == "color"] | order(name asc) { _id, name, hex }
+  "colors": *[_type == "color"] | order(name asc) { _id, name, hex, "slug": slug.current }
 }`;
 
 const options = { next: { revalidate: 0 } };
@@ -34,10 +34,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
   const collectionFilter = collection ? `&& collection->slug.current == "${collection}"` : "";
   const materialFilter = material ? `&& count((materials[]->slug.current)[@ == "${material}"]) > 0` : "";
   const categoryFilter = category ? `&& category->slug.current == "${category}"` : "";
-  // Color filter might need adjustment depending on how it's stored on product. 
-  // Assuming strict reference:
-  const colorFilter = color ? `&& color->name == "${color}"` : ""; // Or use ID/Slug if available. 
-  // Color schema provided earlier didn't have slug, just name and hex. So filtering by name.
+  const colorFilter = color ? `&& count((color[]->slug.current)[@ == "${color}"]) > 0` : "";
 
   const PRODUCTS_QUERY = `{
     "items": *[_type == "products" && inStock == true && quantity > 0 ${typeFilter} ${collectionFilter} ${materialFilter} ${categoryFilter} ${colorFilter}] | order(_createdAt desc)[0...12]{
@@ -45,12 +42,13 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
       name,
       slug,
       price,
+      discount,
       images,
       isNew,
       inStock,
       quantity,
       category->{name, "slug": slug.current},
-      color->{name, hex}
+      color[]->{name, hex, "slug": slug.current}
     },
     "total": count(*[_type == "products" && inStock == true && quantity > 0 ${typeFilter} ${collectionFilter} ${materialFilter} ${categoryFilter} ${colorFilter}])
   }`;

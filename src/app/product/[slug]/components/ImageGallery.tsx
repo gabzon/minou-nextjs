@@ -34,7 +34,7 @@ export default function ImageGallery({ images }: Props) {
   return (
     <div className="space-y-4">
       {/* Mobile: Horizontal Scroll Snap */}
-      <div className="flex sm:hidden overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 no-scrollbar">
+      <div className="flex sm:hidden overflow-x-auto snap-x snap-mandatory gap-4 pb-4 mx-2 px-2 no-scrollbar mt-4">
         {images.map((img, idx) => (
           <div key={idx} className="snap-center shrink-0 w-[85vw] aspect-[4/5] rounded-[2rem] overflow-hidden bg-gray-100 relative">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -61,16 +61,15 @@ export default function ImageGallery({ images }: Props) {
           onClick={() => setIsOpen(true)}
         />
       </div>
-      
+
       {images.length > 1 && (
         <div className="hidden sm:grid grid-cols-4 gap-4">
           {images.map((img, idx) => (
             <button
               key={idx}
               onClick={() => setSelectedIndex(idx)}
-              className={`relative aspect-square overflow-hidden rounded-xl border-2 transition-all ${
-                selectedIndex === idx ? 'border-primary ring-2 ring-primary/20' : 'border-transparent hover:border-gray-200'
-              }`}
+              className={`relative aspect-square overflow-hidden rounded-xl border-2 transition-all ${selectedIndex === idx ? 'border-primary ring-2 ring-primary/20' : 'border-transparent hover:border-gray-200'
+                }`}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

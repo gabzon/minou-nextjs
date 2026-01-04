@@ -4,7 +4,8 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n";
 import { useFilter } from "../hooks/use-filter";
-import CategorySelect from "./CategorySelect";
+import { Button } from "@/components/ui/button";
+import { RotateCcw } from "lucide-react";
 import ColorSwatches from "./ColorSwatches";
 import { type FilterOption } from "./ShopContent";
 
@@ -63,13 +64,31 @@ export default function FilterContent({ filters, resolvedParams, className, isMo
       </div>
 
       {/* 2. Category Filter */}
-      <div className={cn(filterSectionClass, !isMobile && "min-w-[200px]")}>
+      <div className={filterSectionClass}>
         <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{t('product.category')}</h3>
-        <CategorySelect 
-          categories={filters.categories}
-          selectedCategory={category}
-          onChange={(val) => setFilter('category', val)}
-        />
+        <div className="flex flex-wrap gap-2">
+          <Link 
+            href={getFilterUrl('category', '')}
+            className={cn(
+              "text-sm px-3 py-1 rounded-full transition-colors border",
+              !category ? "bg-primary text-white border-primary" : "bg-transparent hover:bg-muted border-border"
+            )}
+          >
+            {t('shop.filters.all') || 'All'}
+          </Link>
+          {filters.categories.map(c => (
+            <Link 
+              key={c._id}
+              href={getFilterUrl('category', c.slug ?? '')}
+              className={cn(
+                "text-sm px-3 py-1 rounded-full transition-colors border",
+                category === c.slug ? "bg-primary text-white border-primary" : "bg-transparent hover:bg-muted border-border"
+              )}
+            >
+              {getLocalized(c.name) as string}
+            </Link>
+          ))}
+        </div>
       </div>
 
       {/* 3. Collection Filter */}
@@ -120,6 +139,22 @@ export default function FilterContent({ filters, resolvedParams, className, isMo
             />
         </div>
       </div>
+
+      {(type || collection || category || color) && (
+        <div className={cn("pt-4 border-t border-border mt-4", isMobile ? "w-full" : "w-full flex justify-end")}>
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={() => {
+              window.location.href = '/shop';
+            }}
+            className="text-muted-foreground hover:text-destructive flex items-center gap-2"
+          >
+            <RotateCcw className="w-3 h-3" />
+            {t('shop.filters.clear')}
+          </Button>
+        </div>
+      )}
 
     </div>
   );

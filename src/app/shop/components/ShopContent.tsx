@@ -68,22 +68,15 @@ export default function ShopContent({ filters, products: initialProducts, total,
 
   return (
     <div className="container mx-auto max-w-7xl px-4">
-      {/* Header */}
-      <div className="py-8 flex flex-col gap-2">
-        <h1 className="text-3xl font-extrabold tracking-tight text-foreground">{t('nav.shop')}</h1>
-        <p className="text-muted-foreground">
-          {t('shop.subtitle')}
-        </p>
-      </div>
-
-      {/* Mobile Filters */}
-      <div className="lg:hidden flex justify-end mb-6">
+      {/* Header & Filters */}
+      <div className="py-8 flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+        <div className="flex flex-col gap-2">
+          <h1 className="text-3xl font-extrabold tracking-tight text-foreground">{t('nav.shop')}</h1>
+          <p className="text-muted-foreground">
+            {t('shop.subtitle')}
+          </p>
+        </div>
         <FilterSheet filters={filters} resolvedParams={resolvedParams} />
-      </div>
-
-      {/* Desktop Filters */}
-      <div className="hidden lg:block border-y border-border py-6 mb-8">
-        <FilterContent filters={filters} resolvedParams={resolvedParams} />
       </div>
 
       {/* Results Info */}

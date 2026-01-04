@@ -47,3 +47,12 @@
 - [x] Task: Translate the "All" option in all filter components.
 - [x] Task: Verify responsive styles and spacing for the new filter components.
 - [x] Task: Conductor - User Manual Verification 'Final Polish & Localization' (Protocol in workflow.md)
+
+## Phase 7: Bug Fix - Color Filter Investigation
+- [x] Task: Debug why the Color filter is not working (investigate product schema field name and reference logic).
+- [x] Task: Ensure Color filtering correctly handles slug-based or name-based matching.
+## Phase 8: UI Refinement (Category Badges & Unified Filters)
+- [x] Task: Convert Category filter from Select to Badge/Pill style links.
+- [x] Task: Unify Filter UI: Use the Slide-out Drawer (Sheet) for both Desktop and Mobile (removing always-visible desktop bar).
+- [x] Task: Add "Reset Filters" button in the filter panel.
+- [ ] Task: Conductor - User Manual Verification 'UI Refinement'

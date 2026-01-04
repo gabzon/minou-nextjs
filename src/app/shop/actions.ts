@@ -14,19 +14,20 @@ export async function fetchMoreProducts(offset: number, limit: number, filters: 
   const collectionFilter = filters.collection ? `&& collection->slug.current == "${filters.collection}"` : "";
   const materialFilter = filters.material ? `&& count((materials[]->slug.current)[@ == "${filters.material}"]) > 0` : "";
   const categoryFilter = filters.category ? `&& category->slug.current == "${filters.category}"` : "";
-  const colorFilter = filters.color ? `&& color->name == "${filters.color}"` : "";
+  const colorFilter = filters.color ? `&& count((color[]->slug.current)[@ == "${filters.color}"]) > 0` : "";
 
   const query = `*[_type == "products" && inStock == true && quantity > 0 ${typeFilter} ${collectionFilter} ${materialFilter} ${categoryFilter} ${colorFilter}] | order(_createdAt desc)[${offset}...${offset + limit}]{
     _id,
     name,
     slug,
     price,
+    discount,
     images,
     isNew,
     inStock,
     quantity,
     category->{name, "slug": slug.current},
-    color->{name, hex}
+    color[]->{name, hex, "slug": slug.current}
   }`;
 
   return client.fetch<Product[]>(query, {}, { next: { revalidate: 0 } });

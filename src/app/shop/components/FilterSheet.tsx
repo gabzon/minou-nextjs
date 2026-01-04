@@ -36,7 +36,7 @@ export default function FilterSheet({ filters, resolvedParams }: FilterSheetProp
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline" size="sm" className="flex items-center gap-2 rounded-full lg:hidden h-10 px-4">
+        <Button variant="outline" size="sm" className="flex items-center gap-2 rounded-full h-10 px-4">
           <SlidersHorizontal className="w-4 h-4" />
           <span className="font-bold text-xs uppercase tracking-widest">Filters</span>
           {activeCount > 0 && (
@@ -46,7 +46,7 @@ export default function FilterSheet({ filters, resolvedParams }: FilterSheetProp
           )}
         </Button>
       </SheetTrigger>
-      <SheetContent side="bottom" className="h-[80vh] overflow-y-auto rounded-t-[2rem] px-6">
+      <SheetContent side="right" className="w-full sm:max-w-md overflow-y-auto px-6">
         <SheetHeader className="pb-6 border-b mb-6">
           <SheetTitle className="text-left font-extrabold text-2xl">Filters</SheetTitle>
         </SheetHeader>
