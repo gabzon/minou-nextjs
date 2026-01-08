@@ -7,10 +7,10 @@
 - [x] Task: Conductor - User Manual Verification 'Data Integration' (Protocol in workflow.md)
 
 ## Phase 2: UI Implementation (InfoPageContent)
-- [ ] Task: Write tests for `InfoPageContent` to ensure it handles an optional `image` prop correctly.
-- [ ] Task: Update `InfoPageContent` component to accept an optional `image` prop.
-- [ ] Task: Implement image rendering logic using `next/image` (or Sanity equivalent) with `rounded-3xl` and `max-w-3xl` constraints.
-- [ ] Task: Update `src/app/about/page.tsx` to pass the `aboutImage` to `InfoPageContent`.
+- [x] Task: Write tests for `InfoPageContent` to ensure it handles an optional `image` prop correctly. [368fb44]
+- [x] Task: Update `InfoPageContent` component to accept an optional `image` prop. [368fb44]
+- [x] Task: Implement image rendering logic using `next/image` (or Sanity equivalent) with `rounded-3xl` and `max-w-3xl` constraints. [368fb44]
+- [x] Task: Update `src/app/about/page.tsx` to pass the `aboutImage` to `InfoPageContent`. [53b6992]
 - [ ] Task: Conductor - User Manual Verification 'UI Implementation' (Protocol in workflow.md)
 
 ## Phase 3: Final Polish & Verification
