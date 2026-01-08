@@ -13,7 +13,7 @@
 - [x] Task: Update `src/app/about/page.tsx` to pass the `aboutImage` to `InfoPageContent`. [53b6992]
 - [x] Task: Conductor - User Manual Verification 'UI Implementation' (Protocol in workflow.md)
 
-## Phase 3: Final Polish & Verification
+## Phase 3: Final Polish & Verification [checkpoint: 6595622]
 - [x] Task: Ensure the image handles empty/null states gracefully (no broken image icons). [368fb44]
 - [x] Task: Verify responsive behavior on mobile (image should scale correctly). [368fb44]
-- [ ] Task: Conductor - User Manual Verification 'Final Polish' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Final Polish' (Protocol in workflow.md)
