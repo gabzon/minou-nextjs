@@ -11,3 +11,8 @@ This file tracks all major tracks for the project. Each track has its own detail
 - [x] Track: Footer Update (`conductor/tracks/footer-update/plan.md`)
 - [x] Track: Shop Page Improvements (`conductor/tracks/shop-improvements_20260103/plan.md`)
 - [x] Track: WhatsApp Ordering Integration (`conductor/tracks/whatsapp-ordering/plan.md`)
+
+---
+
+## [x] Track: Add About Image to About Page
+*Link: [./conductor/tracks/about-image_20260108/](./conductor/tracks/about-image_20260108/)*
