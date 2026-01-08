@@ -1,0 +1,8 @@
+{
+  "track_id": "localization-fix_20260108",
+  "type": "bug_fix",
+  "status": "new",
+  "created_at": "2026-01-08T12:00:00Z",
+  "updated_at": "2026-01-08T12:00:00Z",
+  "description": "Fix untranslated page titles for sidebar links and change default site language to Croatian."
+}

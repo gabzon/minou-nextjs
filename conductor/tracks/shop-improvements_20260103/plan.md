@@ -55,4 +55,4 @@
 - [x] Task: Convert Category filter from Select to Badge/Pill style links.
 - [x] Task: Unify Filter UI: Use the Slide-out Drawer (Sheet) for both Desktop and Mobile (removing always-visible desktop bar).
 - [x] Task: Add "Reset Filters" button in the filter panel.
-- [ ] Task: Conductor - User Manual Verification 'UI Refinement'
+- [x] Task: Conductor - User Manual Verification 'UI Refinement'
