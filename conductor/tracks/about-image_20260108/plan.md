@@ -14,6 +14,6 @@
 - [x] Task: Conductor - User Manual Verification 'UI Implementation' (Protocol in workflow.md)
 
 ## Phase 3: Final Polish & Verification
-- [~] Task: Ensure the image handles empty/null states gracefully (no broken image icons).
-- [~] Task: Verify responsive behavior on mobile (image should scale correctly).
+- [x] Task: Ensure the image handles empty/null states gracefully (no broken image icons). [368fb44]
+- [x] Task: Verify responsive behavior on mobile (image should scale correctly). [368fb44]
 - [ ] Task: Conductor - User Manual Verification 'Final Polish' (Protocol in workflow.md)
