@@ -9,6 +9,7 @@ export default async function ShippingPage() {
   return (
     <InfoPageContent
       title="Shipping & Delivery"
+      titleKey="nav.shipping"
       content={settings?.shipping}
     />
   );

@@ -9,6 +9,7 @@ export default async function ReturnsPage() {
   return (
     <InfoPageContent
       title="Returns & Exchanges"
+      titleKey="nav.returns"
       content={settings?.returns}
     />
   );

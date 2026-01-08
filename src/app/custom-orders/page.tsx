@@ -9,6 +9,7 @@ export default async function CustomOrdersPage() {
   return (
     <InfoPageContent
       title="Custom Orders"
+      titleKey="nav.customOrders"
       content={settings?.customOrders}
     />
   );
