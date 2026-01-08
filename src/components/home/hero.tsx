@@ -36,7 +36,7 @@ export function Hero({ featuredProducts = [], coverImage }: HeroProps) {
       // We can approximate by dividing scrollLeft by the width of the first child or just clientWidth if 1 item per view.
       // Given the complex breakpoints (w-full sm:w-[calc(50%-8px)] lg:w-[calc(25%-12px)]), simpler is better:
       // use the center point.
-      
+
       const itemWidth = scrollRef.current.children[0]?.clientWidth || clientWidth;
       const index = Math.round(scrollLeft / itemWidth);
       setActiveIndex(Math.min(Math.max(0, index), totalSlides - 1));
@@ -55,24 +55,24 @@ export function Hero({ featuredProducts = [], coverImage }: HeroProps) {
   return (
     <section className="px-4 pt-4 pb-2 relative group/hero">
       <div className="container mx-auto max-w-7xl px-0">
-        <div 
+        <div
           ref={scrollRef}
           className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0"
         >
-          
+
           {/* 1. Branding / Intro Card */}
           <div className="snap-center shrink-0 w-full sm:w-[calc(50%-8px)] lg:w-[calc(25%-12px)] aspect-[9/14] sm:aspect-[9/16] rounded-[2rem] overflow-hidden group shadow-lg bg-muted relative">
-             <div 
+            <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-              style={{ 
-                backgroundImage: `url("${coverImage ? urlFor(coverImage).url() : 'https://images.unsplash.com/photo-1611085583191-a3b136340921?auto=format&fit=crop&q=80&w=1000'}")` 
+              style={{
+                backgroundImage: `url("${coverImage ? urlFor(coverImage).url() : 'https://images.unsplash.com/photo-1611085583191-a3b136340921?auto=format&fit=crop&q=80&w=1000'}")`
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />            <div className="absolute bottom-0 left-0 w-full p-6 flex flex-col items-start gap-4">
               <div className="flex flex-col gap-1">
-                <span className="px-3 py-1 bg-accent-butter text-foreground text-[10px] font-bold rounded-full w-fit uppercase tracking-wider">
+                {/* <span className="px-3 py-1 bg-accent-butter text-foreground text-[10px] font-bold rounded-full w-fit uppercase tracking-wider">
                   {t("hero.newSeason")}
-                </span>
+                </span> */}
                 <h2 className="text-white text-4xl font-extrabold leading-[1.1] tracking-tight drop-shadow-sm whitespace-pre-line">
                   {t("hero.title")}
                 </h2>
@@ -80,7 +80,7 @@ export function Hero({ featuredProducts = [], coverImage }: HeroProps) {
                   {t("hero.description")}
                 </p>
               </div>
-              <Link 
+              <Link
                 href="/shop"
                 className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-bold text-sm transition-all active:scale-95 shadow-lg shadow-primary/30"
               >
@@ -124,8 +124,8 @@ export function Hero({ featuredProducts = [], coverImage }: HeroProps) {
               key={i}
               className={cn(
                 "h-1.5 rounded-full transition-all duration-300",
-                i === activeIndex 
-                  ? "w-6 bg-primary" 
+                i === activeIndex
+                  ? "w-6 bg-primary"
                   : "w-1.5 bg-primary/20"
               )}
             />

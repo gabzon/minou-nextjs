@@ -49,8 +49,8 @@ export const DICTIONARY: Record<string, Record<Language, string>> = {
   "footer.faq": { en: "FAQ", hr: "Česta pitanja" },
   "footer.madeWithLove": { en: "Handmade with love.", hr: "Ručni rad s puno ljubavi." },
   "hero.newSeason": { en: "New Season", hr: "Nova Sezona" },
-  "hero.title": { en: "Wear the\nJoy.", hr: "Nosi\nRadost." },
-  "hero.description": { en: "Handmade jewelry for your everyday play.", hr: "Ručno rađen nakit za tvoju svakodnevnu igru." },
+  "hero.title": { en: "Wear the\nJoy", hr: "Nosi\nRadost" },
+  "hero.description": { en: "For every moment unique and yours.", hr: "Za svaki trenutak jedinstven i tvoj." },
   "hero.cta": { en: "Shop New Drops", hr: "Istraži Novo" },
 };
 
