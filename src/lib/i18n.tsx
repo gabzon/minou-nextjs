@@ -15,7 +15,7 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguage] = useState<Language>("hr");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -23,6 +23,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     if (saved && (saved === "en" || saved === "hr")) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setLanguage(saved);
+      document.documentElement.lang = saved;
+    } else {
+      document.documentElement.lang = "hr";
     }
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
@@ -31,6 +34,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const handleSetLanguage = (lang: Language) => {
     setLanguage(lang);
     localStorage.setItem("minou-lang", lang);
+    document.documentElement.lang = lang;
   };
 
   const t = (key: string): string => {

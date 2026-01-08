@@ -54,7 +54,7 @@ export default async function RootLayout({
   const settings = await getSiteSettings();
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="hr" suppressHydrationWarning>
       <body
         className={`${jakartaSans.variable} font-sans antialiased`}
       >
