@@ -1,10 +1,10 @@
 # Track Plan: Add About Image to About Page
 
-## Phase 1: Data Integration & Types
+## Phase 1: Data Integration & Types [checkpoint: 2556140]
 - [x] Task: Update the GROQ query in `src/app/about/page.tsx` to fetch `aboutImage`. [53b6992]
 - [x] Task: Update types/interfaces for `siteSettings` to include the `aboutImage` field. [53b6992]
 - [x] Task: Verify data fetching by logging the `aboutImage` object in the dev environment. [53b6992]
-- [ ] Task: Conductor - User Manual Verification 'Data Integration' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Data Integration' (Protocol in workflow.md)
 
 ## Phase 2: UI Implementation (InfoPageContent)
 - [ ] Task: Write tests for `InfoPageContent` to ensure it handles an optional `image` prop correctly.
